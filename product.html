@@ -314,11 +314,21 @@
 
 </div>
             </div>
-            <div class="product-url-copy">
-              <strong>Product link:</strong>
-              <div id="productUrlText" style="margin-top: 10px;">${productUrl}</div>
-              <button class="btn" style="margin-top: 12px;" onclick="copyProductUrl('${productUrl}')">Copy link</button>
-            </div>
+          <div class="menu-container">
+
+  <button class="menu-btn" onclick="toggleMenu()">
+    ⋮
+  </button>
+
+  <div class="menu-dropdown" id="menuDropdown">
+
+    <button onclick="copyProductUrl('${productUrl}')">
+      Copy Product Link
+    </button>
+
+  </div>
+
+</div>
           </div>
         </div>
       `;
