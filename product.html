@@ -41,6 +41,51 @@
       object-fit: cover;
       display: block;
     }
+
+    .modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 450px;
+}
+
+.order-form input,
+.order-form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.order-form button {
+  width: 100%;
+  padding: 14px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.close-btn {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+    
     .product-details {
       padding: 30px;
       display: flex;
@@ -315,6 +360,27 @@
     }
 
     renderProduct();
+    const modal = document.getElementById("orderModal");
+
+function openOrderForm(productName, productPrice) {
+
+  modal.style.display = "flex";
+
+  document.getElementById("productInput").value =
+    `${productName} - TZS ${productPrice}`;
+}
+
+function closeOrderForm() {
+  modal.style.display = "none";
+}
+
+window.addEventListener("click", (e) => {
+
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+
+});
   </script>
 </body>
 </html>
