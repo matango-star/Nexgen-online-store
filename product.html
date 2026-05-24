@@ -1,321 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Product — Natural Medicine Store</title>
+
   <link rel="stylesheet" href="style.css">
+
   <style>
-    .product-page {
-      padding: 40px 20px 80px;
-      max-width: 1080px;
-      margin: 0 auto;
+
+    body{
+      background:#f5f7fb;
+      margin:0;
+      font-family:Arial, sans-serif;
     }
 
-    .more-about-section {
-  margin-top: 40px;
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-}
-
-.more-about-section h2 {
-  margin-top: 0;
-  color: #1e3d59;
-}
-    .product-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 30px;
-    }
-    .product-header h1 {
-      margin: 0;
-      font-size: 32px;
-      color: #1e3d59;
-    }
-    .product-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-      padding: 0;
-    }
-    .product-card img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      display: block;
+    .site-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px;
+      background:white;
+      box-shadow:0 2px 10px rgba(0,0,0,0.05);
     }
 
-    .modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal-content {
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 450px;
-}
-
-.order-form input,
-.order-form textarea {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 14px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-}
-
-.order-form button {
-  width: 100%;
-  padding: 14px;
-  background: #27ae60;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.close-btn {
-  float: right;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-    .menu-container {
-  position: relative;
-}
-
-.menu-btn {
-  background: #f3f7fb;
-  color: #1e3d59;
-  border: none;
-  border-radius: 10px;
-  padding: 12px 16px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.menu-dropdown {
-  display: none;
-  position: absolute;
-  top: 50px;
-  right: 0;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  overflow: hidden;
-  z-index: 100;
-}
-
-.menu-dropdown button {
-  border: none;
-  background: white;
-  padding: 14px 18px;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-}
-
-.menu-dropdown button:hover {
-  background: #f3f7fb;
-}
-    .product-details {
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .brand h1{
+      margin:0;
+      color:#1e3d59;
+      font-size:28px;
     }
-    .product-details p {
-      line-height: 1.75;
-      color: #3d5568;
+
+    .btn{
+      background:#27ae60;
+      color:white;
+      border:none;
+      padding:12px 18px;
+      border-radius:10px;
+      text-decoration:none;
+      cursor:pointer;
+      display:inline-block;
+      font-size:15px;
     }
-    .product-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
+
+    .btn:hover{
+      opacity:.9;
     }
-    .product-actions .btn {
-      min-width: 160px;
+
+    .product-page{
+      padding:40px 20px 80px;
+      max-width:1080px;
+      margin:0 auto;
     }
-    .product-url-copy {
-      margin-top: 22px;
-      background: #f3f7fb;
-      border: 1px solid #dbe8f3;
-      border-radius: 12px;
-      padding: 16px;
-      color: #0f2b45;
-      font-size: 14px;
-      word-break: break-all;
+
+    .product-header{
+      margin-bottom:30px;
     }
-    .product-url-copy button {
-      margin-top: 12px;
-      width: auto;
+
+    .product-header h1{
+      margin:0;
+      font-size:34px;
+      color:#1e3d59;
     }
-    .no-product {
-      text-align: center;
-      padding: 64px 24px;
-      border-radius: 16px;
-      background: white;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      margin-top: 40px;
+
+    .product-card{
+      position:relative;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+      background:white;
+      border-radius:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      overflow:hidden;
     }
-    @media (max-width: 860px) {
-      .product-card {
-        grid-template-columns: 1fr;
+
+    .product-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .product-details{
+      padding:30px;
+    }
+
+    .product-details p{
+      line-height:1.8;
+      color:#3d5568;
+    }
+
+    .price{
+      font-size:28px;
+      color:#27ae60;
+      font-weight:bold;
+      margin-top:18px;
+    }
+
+    .product-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:25px;
+    }
+
+    /* THREE DOTS */
+
+    .menu-container{
+      position:absolute;
+      top:15px;
+      right:15px;
+      z-index:100;
+    }
+
+    .menu-btn{
+      width:44px;
+      height:44px;
+      border:none;
+      border-radius:50%;
+      background:white;
+      font-size:24px;
+      cursor:pointer;
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .menu-dropdown{
+      display:none;
+      position:absolute;
+      top:52px;
+      right:0;
+      background:white;
+      border-radius:12px;
+      overflow:hidden;
+      min-width:180px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .menu-dropdown button{
+      border:none;
+      background:white;
+      width:100%;
+      padding:14px 18px;
+      cursor:pointer;
+      text-align:left;
+    }
+
+    .menu-dropdown button:hover{
+      background:#f3f7fb;
+    }
+
+    /* MORE ABOUT */
+
+    .more-about{
+      margin-top:30px;
+      padding-top:20px;
+      border-top:1px solid #eee;
+    }
+
+    .more-about h3{
+      margin-top:0;
+      color:#1e3d59;
+    }
+
+    /* MODAL */
+
+    .modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.6);
+      justify-content:center;
+      align-items:center;
+      z-index:999;
+    }
+
+    .modal-content{
+      background:white;
+      padding:30px;
+      border-radius:16px;
+      width:90%;
+      max-width:450px;
+      position:relative;
+    }
+
+    .close-btn{
+      position:absolute;
+      right:18px;
+      top:12px;
+      font-size:30px;
+      cursor:pointer;
+    }
+
+    .order-form input,
+    .order-form textarea{
+      width:100%;
+      padding:14px;
+      margin-bottom:14px;
+      border:1px solid #ccc;
+      border-radius:10px;
+      box-sizing:border-box;
+    }
+
+    .order-form button{
+      width:100%;
+      padding:14px;
+      background:#27ae60;
+      color:white;
+      border:none;
+      border-radius:10px;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    .no-product{
+      text-align:center;
+      padding:60px 20px;
+      background:white;
+      border-radius:20px;
+    }
+
+    @media(max-width:860px){
+
+      .product-card{
+        grid-template-columns:1fr;
       }
+
     }
+
   </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="brand">
-      <h1>Natural Herbal Medicine Store</h1>
-    </div>
-  </header>
 
-  <main class="product-page">
-    <div class="product-header">
-      <div>
-        <p id="productCategory" style="margin: 0; color: #27ae60; font-weight: 700; letter-spacing: .02em;"></p>
-        <h1 id="productName">Product details</h1>
-      </div>
-      <div class="product-actions" id="topProductActions"></div>
-    </div>
+<header class="site-header">
 
-    <div id="productContent"></div>
-  </main>
+  <div class="brand">
+    <h1>Natural Herbal Medicine Store</h1>
+  </div>
 
-  <script>
-    const products = [
-      {
-        id: "1",
-        name: "Liver Detox Tea",
-        category: "Detox & Cleansing",
-        price: 25000,
-        description: "Natural cleansing for liver health.",
-        details: "This herbal tea supports liver detoxification and digestion with trusted natural ingredients.",
-        image: "pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg",
-      },
-      {
-        id: "2",
-        name: "Immune Booster Capsules",
-        category: "Immunity Boost",
-        price: 30000,
-        description: "Boost your body immunity naturally.",
-        details: "Powerful herbal capsules designed to strengthen your immune response and support everyday wellness.",
-        image: "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
-      },
-      {
-        id: "3",
-        name: "Herbal Pain Relief Oil",
-        category: "Pain Relief",
-        price: 20000,
-        description: "Relieves muscle and body pain.",
-        details: "Apply this soothing oil to tense areas for fast, calming relief without harsh chemicals.",
-        image: "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
-      },
-      {
-        id: "4",
-        name: "Vitamin E Eye",
-        category: "Herbal Wellness",
-        price: 79000,
-        description: "Punguza maumivu ya macho.",
-        details: "A vitamin-rich eye formula to support comfort and protection for tired eyes.",
-        image: "pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg",
-      },
-      {
-        id: "5",
-        name: "Herbal Pain Relief Oil",
-        category: "Pain Relief",
-        price: 20000,
-        description: "Relieves muscle and body pain.",
-        details: "A trusted herbal oil blend for natural relief from aches and tension.",
-        image: "pics/WhatsApp Image 2026-05-22 at 18.37.34 (3).jpeg",
-      },
-      {
-        id: "6",
-        name: "Liver Cleanising Tea",
-        category: "Detox & Cleansing",
-        price: 69000,
-        description: "Safisha Ini lako.",
-        details: "A gentle herbal tea that helps clean and support the liver naturally.",
-        image: "pics/WhatsApp Image 2026-05-21 at 21.22.59.jpeg",
-      },
-      {
-        id: "7",
-        name: "Mbegu Asili",
-        category: "Herbal Wellness",
-        price: 20000,
-        description: "Viungo Asili Havina Kemikali.",
-        details: "Pure natural seeds for traditional health uses, without artificial additives.",
-        image: "pics/WhatsApp Image 2026-05-21 at 22.23.45 (1).jpeg",
-      },
-      {
-        id: "8",
-        name: "Herbal Pain Relief Oil",
-        category: "Pain Relief",
-        price: 20000,
-        description: "Relieves muscle and body pain.",
-        details: "A natural pain relief oil formula to reduce discomfort and improve mobility.",
-        image: "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
-      }
-    ];
+  <a class="btn" href="index.html">
+    Back to Store
+  </a>
 
-    function getQueryParam(name) {
-      return new URLSearchParams(window.location.search).get(name);
-    }
+</header>
 
-    function formatPrice(value) {
-      return `TZS ${value.toLocaleString()}`;
-    }
+<main class="product-page">
 
-    function buildProductUrl(productId) {
-      return `${window.location.origin}${window.location.pathname}?id=${productId}`;
-    }
+  <div class="product-header">
 
-    function createProductCard(product) {
-      const productUrl = buildProductUrl(product.id);
-      return `
-        <div class="product-card">
-          <img src="${product.image}" alt="${product.name}">
-          <div class="product-details">
-            <p style="margin:0 0 12px; font-size: 15px; letter-spacing: .02em; color: #27ae60;">${product.category}</p>
-            <h2 style="margin-top:0;">${product.name}</h2>
-            <p>${product.description}</p>
-            <p class="price" style="margin: 18px 0 0; font-size: 24px;">${formatPrice(product.price)}</p>
-          <div class="more-about-section">
-  <h2>More About This Product</h2>
-  <p>${product.details}</p>
-</div>
-            <div class="product-actions">
-              <a class="btn" href="index.html">Back to Store</a>
-              <button class="btn order-btn" onclick="openOrderForm('${product.name}', ${product.price})">  Order Now</button>
-              <a class="btn" href="https://wa.me/255662887661?text=${encodeURIComponent('Hello, I want to order ' + product.name)}" target="_blank" rel="noreferrer">Order on WhatsApp</a>
-           <!-- ORDER FORM MODAL -->
+    <p id="productCategory"
+       style="margin:0;color:#27ae60;font-weight:700;">
+    </p>
+
+    <h1 id="productName">
+      Product Details
+    </h1>
+
+  </div>
+
+  <div id="productContent"></div>
+
+</main>
+
+<!-- ORDER MODAL -->
+
 <div class="modal" id="orderModal">
 
   <div class="modal-content">
 
-    <span class="close-btn" onclick="closeOrderForm()">&times;</span>
+    <span class="close-btn" onclick="closeOrderForm()">
+      &times;
+    </span>
 
     <h2>Submit Your Order</h2>
 
@@ -367,97 +321,284 @@
   </div>
 
 </div>
-            </div>
-          <div class="menu-container">
 
-  <button class="menu-btn" onclick="toggleMenu()">
-    ⋮
-  </button>
+<script>
 
-  <div class="menu-dropdown" id="menuDropdown">
+const products = [
 
-    <button onclick="copyProductUrl('${productUrl}')">
-      Copy Product Link
-    </button>
+  {
+    id:"1",
+    name:"Liver Detox Tea",
+    category:"Detox & Cleansing",
+    price:25000,
+    description:"Natural cleansing for liver health.",
+    details:"This herbal tea supports liver detoxification and digestion with trusted natural ingredients.",
+    image:"pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg"
+  },
 
-  </div>
+  {
+    id:"2",
+    name:"Immune Booster Capsules",
+    category:"Immunity Boost",
+    price:30000,
+    description:"Boost your body immunity naturally.",
+    details:"Powerful herbal capsules designed to strengthen your immune response and support wellness.",
+    image:"pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg"
+  },
 
-</div>
-          </div>
+  {
+    id:"3",
+    name:"Herbal Pain Relief Oil",
+    category:"Pain Relief",
+    price:20000,
+    description:"Relieves muscle and body pain.",
+    details:"Apply this soothing oil for calming natural relief.",
+    image:"pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg"
+  }
+
+];
+
+function getQueryParam(name){
+
+  return new URLSearchParams(window.location.search).get(name);
+
+}
+
+function formatPrice(value){
+
+  return `TZS ${value.toLocaleString()}`;
+
+}
+
+function buildProductUrl(productId){
+
+  return `${window.location.origin}${window.location.pathname}?id=${productId}`;
+
+}
+
+function createProductCard(product){
+
+  const productUrl =
+    buildProductUrl(product.id);
+
+  return `
+
+    <div class="product-card">
+
+      <!-- THREE DOTS -->
+
+      <div class="menu-container">
+
+        <button class="menu-btn"
+                onclick="toggleMenu()">
+
+          ⋮
+
+        </button>
+
+        <div class="menu-dropdown"
+             id="menuDropdown">
+
+          <button onclick="copyProductUrl('${productUrl}')">
+
+            Copy Product Link
+
+          </button>
+
         </div>
-      `;
-    }
 
-    function copyProductUrl(url) {
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(url)
-          .then(() => alert('Product link copied to clipboard.'))
-          .catch(() => alert('Please copy the link manually: ' + url));
-      } else {
-        prompt('Copy this product link:', url);
-      }
-    }
+      </div>
 
-    function renderProduct() {
-      const selectedId = getQueryParam('id');
-      const product = products.find(item => item.id === selectedId);
-      const content = document.getElementById('productContent');
-      const productName = document.getElementById('productName');
-      const productCategory = document.getElementById('productCategory');
+      <!-- IMAGE -->
 
-      if (!product) {
-        document.title = 'Product not found — Natural Medicine Store';
-        content.innerHTML = `
-          <div class="no-product">
-            <h2>Product not found</h2>
-            <p>Please return to the main store and select a product.</p>
-            <a class="btn" href="index.html">Return to Store</a>
-          </div>
-        `;
-        return;
-      }
+      <img src="${product.image}"
+           alt="${product.name}">
 
-      productName.textContent = product.name;
-      productCategory.textContent = product.category;
-      document.title = `${product.name} — Natural Medicine Store`;
-      content.innerHTML = createProductCard(product);
-    }
+      <!-- DETAILS -->
 
-    renderProduct();
-    const modal = document.getElementById("orderModal");
+      <div class="product-details">
 
-function openOrderForm(productName, productPrice) {
+        <p style="margin:0 0 12px;color:#27ae60;font-weight:700;">
+
+          ${product.category}
+
+        </p>
+
+        <h2>
+
+          ${product.name}
+
+        </h2>
+
+        <p>
+
+          ${product.description}
+
+        </p>
+
+        <div class="price">
+
+          ${formatPrice(product.price)}
+
+        </div>
+
+        <!-- BUTTONS -->
+
+        <div class="product-actions">
+
+          <button
+            class="btn"
+            onclick="openOrderForm('${product.name}', ${product.price})"
+          >
+
+            Order Now
+
+          </button>
+
+          <a
+            class="btn"
+            href="https://wa.me/255662887661?text=${encodeURIComponent('Hello, I want to order ' + product.name)}"
+            target="_blank"
+          >
+
+            WhatsApp
+
+          </a>
+
+        </div>
+
+        <!-- MORE ABOUT -->
+
+        <div class="more-about">
+
+          <h3>
+
+            More About This Product
+
+          </h3>
+
+          <p>
+
+            ${product.details}
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+function copyProductUrl(url){
+
+  navigator.clipboard.writeText(url);
+
+  alert("Product link copied!");
+
+}
+
+function toggleMenu(){
+
+  const menu =
+    document.getElementById("menuDropdown");
+
+  if(menu.style.display === "block"){
+
+    menu.style.display = "none";
+
+  }else{
+
+    menu.style.display = "block";
+
+  }
+
+}
+
+function renderProduct(){
+
+  const selectedId =
+    getQueryParam("id");
+
+  const product =
+    products.find(item => item.id === selectedId);
+
+  const content =
+    document.getElementById("productContent");
+
+  const productName =
+    document.getElementById("productName");
+
+  const productCategory =
+    document.getElementById("productCategory");
+
+  if(!product){
+
+    content.innerHTML = `
+      <div class="no-product">
+
+        <h2>
+          Product not found
+        </h2>
+
+        <a class="btn" href="index.html">
+          Return to Store
+        </a>
+
+      </div>
+    `;
+
+    return;
+
+  }
+
+  productName.textContent =
+    product.name;
+
+  productCategory.textContent =
+    product.category;
+
+  content.innerHTML =
+    createProductCard(product);
+
+}
+
+renderProduct();
+
+/* ORDER FORM */
+
+const modal =
+  document.getElementById("orderModal");
+
+function openOrderForm(productName, productPrice){
 
   modal.style.display = "flex";
 
   document.getElementById("productInput").value =
     `${productName} - TZS ${productPrice}`;
+
 }
 
-function closeOrderForm() {
+function closeOrderForm(){
+
   modal.style.display = "none";
+
 }
 
-window.addEventListener("click", (e) => {
+window.addEventListener("click", (e)=>{
 
-  if (e.target === modal) {
+  if(e.target === modal){
+
     modal.style.display = "none";
+
   }
 
 });
-    function toggleMenu() {
 
-  const menu =
-    document.getElementById("menuDropdown");
+</script>
 
-  if (menu.style.display === "block") {
-    menu.style.display = "none";
-  } else {
-    menu.style.display = "block";
-  }
-
-}
-  </script>
 </body>
 </html>
-
