@@ -209,10 +209,65 @@
             <p style="margin: 14px 0 16px; color: #4a5568;">${product.details}</p>
             <div class="product-actions">
               <a class="btn" href="index.html">Back to Store</a>
-              <button class="btn order-btn" onclick="openOrderForm('${product.name}', ${product.price})">
-  Order Now
-</button>
+              <button class="btn order-btn" onclick="openOrderForm('${product.name}', ${product.price})">  Order Now</button>
               <a class="btn" href="https://wa.me/255662887661?text=${encodeURIComponent('Hello, I want to order ' + product.name)}" target="_blank" rel="noreferrer">Order on WhatsApp</a>
+           <!-- ORDER FORM MODAL -->
+<div class="modal" id="orderModal">
+
+  <div class="modal-content">
+
+    <span class="close-btn" onclick="closeOrderForm()">&times;</span>
+
+    <h2>Submit Your Order</h2>
+
+    <form
+      class="order-form"
+      action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfnuvNSPP-qaJKgZa5SPJWNSLyfyTn90zziI1OBH-H8wRUbew/formResponse"
+      method="POST"
+      target="_blank"
+    >
+
+      <input
+        type="text"
+        name="entry.942522329"
+        placeholder="Full Name"
+        required
+      >
+
+      <input
+        type="tel"
+        name="entry.791209487"
+        placeholder="Phone Number"
+        required
+      >
+
+      <input
+        type="text"
+        name="entry.498752024"
+        placeholder="Address"
+        required
+      >
+
+      <textarea
+        name="entry.1526636738"
+        placeholder="Additional Notes"
+      ></textarea>
+
+      <input
+        type="hidden"
+        id="productInput"
+        name="entry.1662885166"
+      >
+
+      <button type="submit">
+        Submit Order
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
             </div>
             <div class="product-url-copy">
               <strong>Product link:</strong>
