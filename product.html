@@ -1,1 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — Natural Medicine Store</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .product-page {
+      padding: 40px 20px 80px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .product-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .product-header h1 {
+      margin: 0;
+      font-size: 32px;
+      color: #1e3d59;
+    }
+    .product-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      padding: 0;
+    }
+    .product-card img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+    .product-details {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-details p {
+      line-height: 1.75;
+      color: #3d5568;
+    }
+    .product-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .product-actions .btn {
+      min-width: 160px;
+    }
+    .product-url-copy {
+      margin-top: 22px;
+      background: #f3f7fb;
+      border: 1px solid #dbe8f3;
+      border-radius: 12px;
+      padding: 16px;
+      color: #0f2b45;
+      font-size: 14px;
+      word-break: break-all;
+    }
+    .product-url-copy button {
+      margin-top: 12px;
+      width: auto;
+    }
+    .no-product {
+      text-align: center;
+      padding: 64px 24px;
+      border-radius: 16px;
+      background: white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      margin-top: 40px;
+    }
+    @media (max-width: 860px) {
+      .product-card {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <h1>Natural Herbal Medicine Store</h1>
+    </div>
+    <a class="btn" href="index.html">Back to Store</a>
+  </header>
+
+  <main class="product-page">
+    <div class="product-header">
+      <div>
+        <p id="productCategory" style="margin: 0; color: #27ae60; font-weight: 700; letter-spacing: .02em;"></p>
+        <h1 id="productName">Product details</h1>
+      </div>
+      <div class="product-actions" id="topProductActions"></div>
+    </div>
+
+    <div id="productContent"></div>
+  </main>
+
+  <script>
+    const products = [
+      {
+        id: "1",
+        name: "Liver Detox Tea",
+        category: "Detox & Cleansing",
+        price: 25000,
+        description: "Natural cleansing for liver health.",
+        details: "This herbal tea supports liver detoxification and digestion with trusted natural ingredients.",
+        image: "pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg",
+      },
+      {
+        id: "2",
+        name: "Immune Booster Capsules",
+        category: "Immunity Boost",
+        price: 30000,
+        description: "Boost your body immunity naturally.",
+        details: "Powerful herbal capsules designed to strengthen your immune response and support everyday wellness.",
+        image: "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
+      },
+      {
+        id: "3",
+        name: "Herbal Pain Relief Oil",
+        category: "Pain Relief",
+        price: 20000,
+        description: "Relieves muscle and body pain.",
+        details: "Apply this soothing oil to tense areas for fast, calming relief without harsh chemicals.",
+        image: "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
+      },
+      {
+        id: "4",
+        name: "Vitamin E Eye",
+        category: "Herbal Wellness",
+        price: 79000,
+        description: "Punguza maumivu ya macho.",
+        details: "A vitamin-rich eye formula to support comfort and protection for tired eyes.",
+        image: "pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg",
+      },
+      {
+        id: "5",
+        name: "Herbal Pain Relief Oil",
+        category: "Pain Relief",
+        price: 20000,
+        description: "Relieves muscle and body pain.",
+        details: "A trusted herbal oil blend for natural relief from aches and tension.",
+        image: "pics/WhatsApp Image 2026-05-22 at 18.37.34 (3).jpeg",
+      },
+      {
+        id: "6",
+        name: "Liver Cleanising Tea",
+        category: "Detox & Cleansing",
+        price: 69000,
+        description: "Safisha Ini lako.",
+        details: "A gentle herbal tea that helps clean and support the liver naturally.",
+        image: "pics/WhatsApp Image 2026-05-21 at 21.22.59.jpeg",
+      },
+      {
+        id: "7",
+        name: "Mbegu Asili",
+        category: "Herbal Wellness",
+        price: 20000,
+        description: "Viungo Asili Havina Kemikali.",
+        details: "Pure natural seeds for traditional health uses, without artificial additives.",
+        image: "pics/WhatsApp Image 2026-05-21 at 22.23.45 (1).jpeg",
+      },
+      {
+        id: "8",
+        name: "Herbal Pain Relief Oil",
+        category: "Pain Relief",
+        price: 20000,
+        description: "Relieves muscle and body pain.",
+        details: "A natural pain relief oil formula to reduce discomfort and improve mobility.",
+        image: "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
+      }
+    ];
+
+    function getQueryParam(name) {
+      return new URLSearchParams(window.location.search).get(name);
+    }
+
+    function formatPrice(value) {
+      return `TZS ${value.toLocaleString()}`;
+    }
+
+    function buildProductUrl(productId) {
+      return `${window.location.origin}${window.location.pathname}?id=${productId}`;
+    }
+
+    function createProductCard(product) {
+      const productUrl = buildProductUrl(product.id);
+      return `
+        <div class="product-card">
+          <img src="${product.image}" alt="${product.name}">
+          <div class="product-details">
+            <p style="margin:0 0 12px; font-size: 15px; letter-spacing: .02em; color: #27ae60;">${product.category}</p>
+            <h2 style="margin-top:0;">${product.name}</h2>
+            <p>${product.description}</p>
+            <p class="price" style="margin: 18px 0 0; font-size: 24px;">${formatPrice(product.price)}</p>
+            <p style="margin: 14px 0 16px; color: #4a5568;">${product.details}</p>
+            <div class="product-actions">
+              <a class="btn" href="index.html">Back to Store</a>
+              <a class="btn" href="https://wa.me/255662887661?text=${encodeURIComponent('Hello, I want to order ' + product.name)}" target="_blank" rel="noreferrer">Order on WhatsApp</a>
+            </div>
+            <div class="product-url-copy">
+              <strong>Product link:</strong>
+              <div id="productUrlText" style="margin-top: 10px;">${productUrl}</div>
+              <button class="btn" style="margin-top: 12px;" onclick="copyProductUrl('${productUrl}')">Copy link</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function copyProductUrl(url) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url)
+          .then(() => alert('Product link copied to clipboard.'))
+          .catch(() => alert('Please copy the link manually: ' + url));
+      } else {
+        prompt('Copy this product link:', url);
+      }
+    }
+
+    function renderProduct() {
+      const selectedId = getQueryParam('id');
+      const product = products.find(item => item.id === selectedId);
+      const content = document.getElementById('productContent');
+      const productName = document.getElementById('productName');
+      const productCategory = document.getElementById('productCategory');
+
+      if (!product) {
+        document.title = 'Product not found — Natural Medicine Store';
+        content.innerHTML = `
+          <div class="no-product">
+            <h2>Product not found</h2>
+            <p>Please return to the main store and select a product.</p>
+            <a class="btn" href="index.html">Return to Store</a>
+          </div>
+        `;
+        return;
+      }
+
+      productName.textContent = product.name;
+      productCategory.textContent = product.category;
+      document.title = `${product.name} — Natural Medicine Store`;
+      content.innerHTML = createProductCard(product);
+    }
+
+    renderProduct();
+  </script>
+</body>
+</html>
 
