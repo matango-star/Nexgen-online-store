@@ -209,6 +209,9 @@
             <p style="margin: 14px 0 16px; color: #4a5568;">${product.details}</p>
             <div class="product-actions">
               <a class="btn" href="index.html">Back to Store</a>
+              <button class="btn order-btn" onclick="openOrderForm('${product.name}', ${product.price})">
+  Order Now
+</button>
               <a class="btn" href="https://wa.me/255662887661?text=${encodeURIComponent('Hello, I want to order ' + product.name)}" target="_blank" rel="noreferrer">Order on WhatsApp</a>
             </div>
             <div class="product-url-copy">
