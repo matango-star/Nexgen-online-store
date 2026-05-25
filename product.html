@@ -807,7 +807,9 @@ Free
 
     <tr>
       <td>
-        <button class="order-btn">AGIZA SASA 🚀</button>
+        <button class="order-btn" onclick="sendToGoogleForm()">
+AGIZA SASA 
+</button>
       </td>
     </tr>
 
@@ -856,5 +858,44 @@ Free
     <p>© 2026 Natural Medicine Store — crafted for natural health, trusted delivery, and wellness support.</p>
   </div>
 </footer>
+  <script>
+const offerBoxes = document.querySelectorAll(".offer-box");
+
+offerBoxes.forEach(box => {
+  box.addEventListener("click", () => {
+    
+    // remove active from all
+    offerBoxes.forEach(b => b.classList.remove("active"));
+
+    // add active to clicked
+    box.classList.add("active");
+  });
+});
+    let selectedPackage = "Nunua 2"; // default
+
+offerBoxes.forEach(box => {
+  box.addEventListener("click", () => {
+    selectedPackage = box.querySelector(".offer-title").innerText;
+  });
+});
+function sendToGoogleForm() {
+
+  const name = document.querySelector(".name-box input").value;
+  const phone = document.querySelector(".phone-box input").value;
+  const region = document.querySelector(".region-box input").value;
+
+  // CHANGE THIS to your Google Form link
+  const formBase = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform";
+
+  // Google Form prefill format (example)
+  const url = formBase +
+    "?entry.111111=" + encodeURIComponent(name) +
+    "&entry.222222=" + encodeURIComponent(phone) +
+    "&entry.333333=" + encodeURIComponent(region) +
+    "&entry.444444=" + encodeURIComponent(selectedPackage);
+
+  window.open(url, "_blank");
+}
+</script>
 </body>
 </html>
