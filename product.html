@@ -60,10 +60,7 @@ body{
   width:100%;
   max-width:400px;
 }
-html, body{
-  height:100%;
-  overflow:hidden;
-}
+
 /* GRAY INPUT BOXES */
 .input-box{
   display:flex;
@@ -108,20 +105,18 @@ html, body{
 }
 
   /* RIGHT SIDE */
-
 .product-info{
-  max-height:90vh;
-  overflow-y:auto;
   padding-right:10px;
 }
-
-.product-info::-webkit-scrollbar{
-  width:6px;
+.product-layout{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+  align-items:start;
 }
-
-.product-info::-webkit-scrollbar-thumb{
-  background:#ccc;
-  border-radius:10px;
+  html, body{
+  height:auto;
+  overflow-y:auto;
 }
 
 .product-info h1{
