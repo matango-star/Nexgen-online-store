@@ -21,7 +21,6 @@ body{
 }
 
 /* PRODUCT LAYOUT */
-
 .product-layout{
   display:grid;
   grid-template-columns:1.2fr 1fr;
@@ -29,7 +28,6 @@ body{
 }
 
 /* LEFT SIDE */
-
 .gallery-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -43,7 +41,7 @@ body{
   cursor:pointer;
 }
 
-/* ORDER  */
+/* ORDER SECTION */
 .order-section{
   margin-top:20px;
   text-align:center;
@@ -86,26 +84,50 @@ body{
   background:transparent;
 }
 
-/* RED BUTTON */
+/* BUTTON ROW (FIXED) */
+.button-row{
+  display:flex;
+  gap:10px;
+  margin-top:10px;
+}
+
+/* AGIZA SASA BUTTON (RED) */
 .order-btn{
-  width:100%;
+  flex:1;
   padding:14px;
   border:none;
   border-radius:10px;
   background:#e60000;
   color:white;
-  font-size:18px;
+  font-size:16px;
   cursor:pointer;
-  transition:0.3s;
   font-weight:bold;
+  transition:0.3s;
 }
 
 .order-btn:hover{
   background:#b30000;
 }
 
-  /* RIGHT SIDE */
+/* WHATSAPP BUTTON (GREEN) */
+.whatsapp-btn{
+  flex:1;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:#25D366;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.3s;
+}
 
+.whatsapp-btn:hover{
+  background:#1ebe5d;
+}
+
+/* RIGHT SIDE */
 .product-info{
   max-height:90vh;
   overflow-y:auto;
@@ -128,6 +150,7 @@ body{
   line-height:1.2;
 }
 
+/* PRICE */
 .price-row{
   display:flex;
   align-items:center;
@@ -157,7 +180,6 @@ body{
 }
 
 /* OFFER BOX */
-
 .offer-container{
   display:flex;
   flex-direction:column;
@@ -181,51 +203,7 @@ body{
   background:#ffe7ec;
 }
 
-.offer-left{
-  display:flex;
-  gap:12px;
-  align-items:center;
-}
-
-.offer-left img{
-  width:48px;
-  height:48px;
-  object-fit:cover;
-  border-radius:6px;
-}
-
-.offer-title{
-  font-size:15px;
-  font-weight:bold;
-}
-
-.save-badge{
-  background:black;
-  color:white;
-  padding:3px 8px;
-  border-radius:5px;
-  font-size:11px;
-  display:inline-block;
-  margin-top:4px;
-}
-
-.offer-price{
-  text-align:right;
-}
-
-.offer-price del{
-  color:#777;
-  font-size:13px;
-}
-
-.offer-price strong{
-  display:block;
-  font-size:17px;
-  margin-top:3px;
-}
-
 /* SHIPPING */
-
 .shipping-box{
   margin-top:15px;
   border:2px solid #ddd;
@@ -237,8 +215,7 @@ body{
   font-size:16px;
 }
 
-/* BUTTONS */
-
+/* BUTTON GROUP (OTHER AREA) */
 .button-group{
   display:flex;
   gap:12px;
@@ -255,18 +232,12 @@ body{
   text-decoration:none;
 }
 
-.order-btn{
-  background:#27ae60;
-  color:white;
-}
-
 .whatsapp-btn{
   background:#1e3d59;
   color:white;
 }
 
 /* ABOUT */
-
 .about-product{
   margin-top:30px;
   background:white;
@@ -285,170 +256,8 @@ body{
   color:#444;
 }
 
-
-
-
-
-
-
-  
-
-.product-info h1{
-  font-size:58px;
-  margin:0 0 20px;
-  font-weight:500;
-}
-
-.price-row{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  margin-bottom:30px;
-}
-
-.new-price{
-  color:#c21807;
-  font-size:42px;
-  font-weight:bold;
-}
-
-.old-price{
-  color:#777;
-  text-decoration:line-through;
-  font-size:28px;
-}
-
-.sale-badge{
-  background:#3559e0;
-  color:white;
-  padding:8px 14px;
-  border-radius:5px;
-  font-size:18px;
-}
-
-/* OFFER BOX */
-
-.offer-container{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-
-.offer-box{
-  border:2px solid #ddd;
-  border-radius:10px;
-  padding:14px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  cursor:pointer;
-  transition:0.3s;
-  background:white;
-}
-
-.offer-box.active{
-  border:3px solid #d61f3d;
-  background:#ffe7ec;
-}
-
-.offer-left{
-  display:flex;
-  gap:15px;
-  align-items:center;
-}
-
-.offer-left img{
-  width:60px;
-  border-radius:6px;
-}
-
-.offer-title{
-  font-size:18px;
-  font-weight:bold;
-}
-
-.save-badge{
-  background:black;
-  color:white;
-  padding:4px 10px;
-  border-radius:5px;
-  font-size:13px;
-  display:inline-block;
-  margin-top:5px;
-}
-
-.offer-price{
-  text-align:right;
-}
-
-.offer-price del{
-  color:#777;
-}
-
-.offer-price strong{
-  display:block;
-  font-size:20px;
-  margin-top:5px;
-}
-
-/* SHIPPING */
-
-.shipping-box{
-  margin-top:18px;
-  border:2px solid #ddd;
-  border-radius:10px;
-  padding:18px;
-  background:white;
-  display:flex;
-  justify-content:space-between;
-  font-size:22px;
-}
-
-/* BUTTONS */
-
-.button-group{
-  display:flex;
-  gap:15px;
-  margin-top:30px;
-}
-
-.btn{
-  padding:16px 28px;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
-  font-size:17px;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-.order-btn{
-  background:#27ae60;
-  color:white;
-}
-
-.whatsapp-btn{
-  background:#1e3d59;
-  color:white;
-}
-
-/* ABOUT */
-
-.about-product{
-  margin-top:40px;
-  background:white;
-  padding:25px;
-  border-radius:14px;
-}
-
-.about-product h2{
-  margin-top:0;
-}
-
 /* MOBILE */
-
 @media(max-width:900px){
-
   .product-layout{
     grid-template-columns:1fr;
   }
@@ -456,7 +265,6 @@ body{
   .product-info h1{
     font-size:38px;
   }
-
 }
 
 </style>
