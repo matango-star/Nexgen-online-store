@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Product Page</title>
+<title>Dynamic Product Page</title>
 
 <style>
 
@@ -20,15 +20,12 @@ body{
   padding:30px;
 }
 
-/* PRODUCT LAYOUT */
-
 .product-layout{
   display:grid;
   grid-template-columns:1.2fr 1fr;
   gap:40px;
+  align-items:start;
 }
-
-/* LEFT SIDE */
 
 .gallery-grid{
   display:grid;
@@ -40,272 +37,11 @@ body{
   width:100%;
   border-radius:14px;
   object-fit:cover;
-  cursor:pointer;
-}
-
-/* ORDER  */
-.order-section{
-  margin-top:20px;
-  text-align:center;
-  font-family:Arial, sans-serif;
-}
-
-.form-title{
-  font-size:22px;
-  margin-bottom:15px;
-}
-
-.order-table{
-  margin:auto;
-  width:100%;
-  max-width:400px;
-}
-
-/* GRAY INPUT BOXES */
-.input-box{
-  display:flex;
-  align-items:center;
-  padding:12px;
-  border-radius:10px;
-  margin-bottom:12px;
-  background:#f2f2f2;
-  border:1px solid #ccc;
-}
-
-.input-box .icon{
-  margin-right:10px;
-  font-size:18px;
-  color:#666;
-}
-
-.input-box input{
-  border:none;
-  outline:none;
-  width:100%;
-  font-size:16px;
-  background:transparent;
-}
-
-/* RED BUTTON */
-.order-btn{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:10px;
-  background:#e60000;
-  color:white;
-  font-size:18px;
-  cursor:pointer;
-  transition:0.3s;
-  font-weight:bold;
-}
-
-.order-btn:hover{
-  background:#b30000;
-}
-/*left-side*/
-  .left-side{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-}
-
-/* ensure about never escapes */
-.about-product{
-  width:100%;
-  max-width:100%;
-  box-sizing:border-box;
-}
-
-  /* RIGHT SIDE */
-.product-info{
-  padding-right:10px;
-}
-.product-layout{
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:40px;
-  align-items:start;
-}
-  html, body{
-  height:auto;
-  overflow-y:auto;
 }
 
 .product-info h1{
-  font-size:38px;
-  margin:0 0 14px;
-  font-weight:600;
-  line-height:1.2;
-}
-
-.price-row{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:22px;
-  flex-wrap:wrap;
-}
-
-.new-price{
-  color:#c21807;
-  font-size:28px;
-  font-weight:bold;
-}
-
-.old-price{
-  color:#777;
-  text-decoration:line-through;
-  font-size:18px;
-}
-
-.sale-badge{
-  background:#3559e0;
-  color:white;
-  padding:5px 10px;
-  border-radius:5px;
-  font-size:13px;
-}
-
-/* OFFER BOX */
-
-.offer-container{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.offer-box{
-  border:2px solid #ddd;
-  border-radius:10px;
-  padding:12px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  cursor:pointer;
-  transition:0.3s;
-  background:white;
-}
-
-.offer-box.active{
-  border:2px solid #d61f3d;
-  background:#ffe7ec;
-}
-
-.offer-left{
-  display:flex;
-  gap:12px;
-  align-items:center;
-}
-
-.offer-left img{
-  width:48px;
-  height:48px;
-  object-fit:cover;
-  border-radius:6px;
-}
-
-.offer-title{
-  font-size:15px;
-  font-weight:bold;
-}
-
-.save-badge{
-  background:black;
-  color:white;
-  padding:3px 8px;
-  border-radius:5px;
-  font-size:11px;
-  display:inline-block;
-  margin-top:4px;
-}
-
-.offer-price{
-  text-align:right;
-}
-
-.offer-price del{
-  color:#777;
-  font-size:13px;
-}
-
-.offer-price strong{
-  display:block;
-  font-size:17px;
-  margin-top:3px;
-}
-
-/* SHIPPING */
-
-.shipping-box{
-  margin-top:15px;
-  border:2px solid #ddd;
-  border-radius:10px;
-  padding:14px;
-  background:white;
-  display:flex;
-  justify-content:space-between;
-  font-size:16px;
-}
-.extra-image-card{
-  margin-top:15px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.extra-image-card img{
-  width:100%;
-  border-radius:12px;
-  object-fit:cover;
-  border:1px solid #ddd;
-}
-/* BUTTONS */
-
-.button-group{
-  display:flex;
-  gap:12px;
-  margin-top:22px;
-}
-
-.btn{
-  padding:13px 22px;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
-  font-size:14px;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-.whatsapp-btn{
-  background:#1e3d59;
-  color:white;
-}
-
-/* ABOUT */
-
-.about-product{
-  margin-top:30px;
-  background:white;
-  padding:22px;
-  border-radius:14px;
-}
-
-.about-product h2{
-  margin-top:0;
-  font-size:24px;
-}
-
-.about-product p{
-  font-size:15px;
-  line-height:1.8;
-  color:#444;
-}
-.product-info h1{
-  font-size:58px;
-  margin:0 0 20px;
-  font-weight:500;
+  font-size:48px;
+  margin-bottom:20px;
 }
 
 .price-row{
@@ -317,25 +53,22 @@ body{
 
 .new-price{
   color:#c21807;
-  font-size:42px;
+  font-size:40px;
   font-weight:bold;
 }
 
 .old-price{
-  color:#777;
   text-decoration:line-through;
-  font-size:28px;
+  color:#777;
+  font-size:25px;
 }
 
 .sale-badge{
   background:#3559e0;
   color:white;
   padding:8px 14px;
-  border-radius:5px;
-  font-size:18px;
+  border-radius:6px;
 }
-
-/* OFFER BOX */
 
 .offer-container{
   display:flex;
@@ -346,7 +79,7 @@ body{
 .offer-box{
   border:2px solid #ddd;
   border-radius:10px;
-  padding:14px;
+  padding:15px;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -368,7 +101,9 @@ body{
 
 .offer-left img{
   width:60px;
-  border-radius:6px;
+  height:60px;
+  border-radius:8px;
+  object-fit:cover;
 }
 
 .offer-title{
@@ -381,77 +116,91 @@ body{
   color:white;
   padding:4px 10px;
   border-radius:5px;
-  font-size:13px;
-  display:inline-block;
+  font-size:12px;
   margin-top:5px;
-}
-
-.offer-price{
-  text-align:right;
-}
-
-.offer-price del{
-  color:#777;
+  display:inline-block;
 }
 
 .offer-price strong{
-  display:block;
   font-size:20px;
-  margin-top:5px;
 }
 
-/* SHIPPING */
-
 .shipping-box{
-  margin-top:18px;
+  margin-top:20px;
   border:2px solid #ddd;
   border-radius:10px;
   padding:18px;
-  background:white;
   display:flex;
   justify-content:space-between;
-  font-size:22px;
+  background:white;
+  font-size:20px;
 }
 
-/* BUTTONS */
+.order-section{
+  margin-top:25px;
+}
 
-.button-group{
+.form-title{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.input-box{
   display:flex;
-  gap:15px;
-  margin-top:30px;
+  align-items:center;
+  background:#f2f2f2;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:12px;
+  border:1px solid #ccc;
 }
 
-.btn{
-  padding:16px 28px;
+.input-box input{
+  border:none;
+  background:transparent;
+  outline:none;
+  width:100%;
+  font-size:16px;
+}
+
+.icon{
+  margin-right:10px;
+}
+
+.order-btn{
+  width:100%;
+  padding:15px;
   border:none;
   border-radius:10px;
-  cursor:pointer;
-  font-size:17px;
+  background:#e60000;
+  color:white;
+  font-size:18px;
   font-weight:bold;
-  text-decoration:none;
+  cursor:pointer;
 }
 
-  /* HEADER */
+.order-btn:hover{
+  background:#b30000;
+}
+
 .site-header{
   position:sticky;
   top:0;
-  z-index:1000;
-  background:#ffffff;
+  background:white;
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:15px 30px;
   box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  z-index:1000;
 }
 
-/* LOGO */
 .logo{
-  font-size:20px;
+  font-size:22px;
   font-weight:bold;
   color:#e60000;
 }
 
-/* NAV LINKS */
 .nav-links{
   display:flex;
   gap:20px;
@@ -460,105 +209,19 @@ body{
 .nav-links a{
   text-decoration:none;
   color:#333;
-  font-weight:600;
-  font-size:15px;
-  transition:0.3s;
+  font-weight:bold;
 }
 
-.nav-links a:hover{
-  color:#e60000;
+.site-footer{
+  background:#12253f;
+  color:white;
+  padding:40px 20px;
+  margin-top:50px;
 }
 
-/* MOBILE */
-@media(max-width:700px){
-  .site-header{
-    flex-direction:column;
-    gap:10px;
-    text-align:center;
-  }
-
-  .nav-links{
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:12px;
-  }
+.footer-bottom{
+  text-align:center;
 }
-.site-footer {
-  background: linear-gradient(180deg, #1b3758 0%, #12253f 100%);
-  color: white;
-  padding: 60px 24px 28px;
-}
-
-.footer-nav {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 32px;
-  max-width: 1200px;
-  margin: auto;
-  padding-bottom: 32px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.footer-box {
-  min-width: 180px;
-}
-
-.brand-box h3 {
-  font-size: 24px;
-  margin-bottom: 14px;
-}
-
-.footer-box h4 {
-  margin-bottom: 16px;
-  font-size: 18px;
-  letter-spacing: 0.5px;
-}
-
-.footer-box p {
-  color: #d8e2f2;
-  font-size: 14px;
-  margin: 0 0 10px;
-  line-height: 1.8;
-}
-
-.footer-box a {
-  display: block;
-  color: #c8def4;
-  text-decoration: none;
-  margin: 8px 0;
-  font-size: 15px;
-}
-
-.footer-box a:hover {
-  color: #ffffff;
-}
-
-.footer-bottom {
-  max-width: 1200px;
-  margin: 20px auto 0;
-  text-align: center;
-  color: #a9c7e4;
-  font-size: 14px;
-  letter-spacing: 0.2px;
-}
-
-.footer-bottom p {
-  margin: 0;
-}
-/* ABOUT */
-
-.about-product{
-  margin-top:40px;
-  background:white;
-  padding:25px;
-  border-radius:14px;
-}
-
-.about-product h2{
-  margin-top:0;
-}
-
-/* MOBILE */
 
 @media(max-width:900px){
 
@@ -567,7 +230,7 @@ body{
   }
 
   .product-info h1{
-    font-size:38px;
+    font-size:35px;
   }
 
 }
@@ -576,18 +239,19 @@ body{
 </head>
 
 <body>
-  <header class="site-header">
 
-  <div class="logo">
+<header class="site-header">
+
+<div class="logo">
 Nexgen Online Shop
-  </div>
+</div>
 
-  <nav class="nav-links">
-    <a href="#">Home</a>
-    <a href="#offers">Offers</a>
-    <a href="#order">Order</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<nav class="nav-links">
+<a href="#">Home</a>
+<a href="#">Offers</a>
+<a href="#">Order</a>
+<a href="#">Contact</a>
+</nav>
 
 </header>
 
@@ -596,36 +260,25 @@ Nexgen Online Shop
 <div class="product-layout">
 
 <!-- LEFT -->
-
 <div class="gallery-grid">
 
-<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
-
-<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg">
-
-<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg">
-
-<img src="pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg">
+<img id="mainImage1" src="">
+<img id="mainImage2" src="">
+<img id="mainImage3" src="">
+<img id="mainImage4" src="">
 
 </div>
-    <div class="about-product">
-
 
 <!-- RIGHT -->
-
 <div class="product-info">
 
-<h1>Liver Cleansing Tea</h1>
+<h1 id="productName"></h1>
 
 <div class="price-row">
 
-<div class="new-price">
-69,000 TZS
-</div>
+<div class="new-price" id="newPrice"></div>
 
-<div class="old-price">
-99,000 TZS
-</div>
+<div class="old-price" id="oldPrice"></div>
 
 <div class="sale-badge">
 Sale
@@ -634,20 +287,17 @@ Sale
 </div>
 
 <!-- OFFERS -->
-
 <div class="offer-container">
 
-<div class="offer-box">
+<div class="offer-box active">
 
 <div class="offer-left">
 
-<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+<img id="offerImg1" src="">
 
 <div>
 
-<div class="offer-title">
-Nunua 1
-</div>
+<div class="offer-title" id="offer1Title"></div>
 
 <div class="save-badge">
 Save 0%
@@ -658,24 +308,20 @@ Save 0%
 </div>
 
 <div class="offer-price">
-
-<strong>69,000 TZS</strong>
-
+<strong id="offer1Price"></strong>
 </div>
 
 </div>
 
-<div class="offer-box active">
+<div class="offer-box">
 
 <div class="offer-left">
 
-<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+<img id="offerImg2" src="">
 
 <div>
 
-<div class="offer-title">
-Nunua 2
-</div>
+<div class="offer-title" id="offer2Title"></div>
 
 <div class="save-badge">
 Save 20%
@@ -686,11 +332,7 @@ Save 20%
 </div>
 
 <div class="offer-price">
-
-<del>138,000 TZS</del>
-
-<strong>99,000 TZS</strong>
-
+<strong id="offer2Price"></strong>
 </div>
 
 </div>
@@ -699,13 +341,11 @@ Save 20%
 
 <div class="offer-left">
 
-<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+<img id="offerImg3" src="">
 
 <div>
 
-<div class="offer-title">
-Nunua 3
-</div>
+<div class="offer-title" id="offer3Title"></div>
 
 <div class="save-badge">
 Save 30%
@@ -716,11 +356,7 @@ Save 30%
 </div>
 
 <div class="offer-price">
-
-<del>207,000 TZS</del>
-
-<strong>139,000 TZS</strong>
-
+<strong id="offer3Price"></strong>
 </div>
 
 </div>
@@ -729,13 +365,11 @@ Save 30%
 
 <div class="offer-left">
 
-<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+<img id="offerImg4" src="">
 
 <div>
 
-<div class="offer-title">
-Nunua 4
-</div>
+<div class="offer-title" id="offer4Title"></div>
 
 <div class="save-badge">
 Save 40%
@@ -746,11 +380,7 @@ Save 40%
 </div>
 
 <div class="offer-price">
-
-<del>276,000 TZS</del>
-
-<strong>169,000 TZS</strong>
-
+<strong id="offer4Price"></strong>
 </div>
 
 </div>
@@ -758,144 +388,249 @@ Save 40%
 </div>
 
 <!-- SHIPPING -->
-
 <div class="shipping-box">
 
 <div>
 🚚 Free Shipping
 </div>
 
-<strong>
-Free
-</strong>
+<strong>Free</strong>
 
 </div>
 
-  <!-- ORDER FORM SECTION -->
+<!-- ORDER FORM -->
 <div class="order-section">
 
-  <h2 class="form-title">Jaza fomu hii kuagiza 🛒👇</h2>
+<h2 class="form-title">
+Jaza fomu hii kuagiza 🛒👇
+</h2>
 
-  <table class="order-table">
+<div class="input-box name-box">
+<span class="icon">👤</span>
+<input type="text" placeholder="Jina Kamili">
+</div>
 
-    <tr>
-      <td>
-        <div class="input-box name-box">
-          <span class="icon">👤</span>
-          <input type="text" placeholder="Jina Kamili">
-        </div>
-      </td>
-    </tr>
+<div class="input-box phone-box">
+<span class="icon">📞</span>
+<input type="tel" placeholder="Namba ya simu">
+</div>
 
-    <tr>
-      <td>
-        <div class="input-box phone-box">
-          <span class="icon">📞</span>
-          <input type="tel" placeholder="Namba ya simu">
-        </div>
-      </td>
-    </tr>
+<div class="input-box region-box">
+<span class="icon">📍</span>
+<input type="text" placeholder="Mkoa">
+</div>
 
-    <tr>
-      <td>
-        <div class="input-box region-box">
-          <span class="icon">📍</span>
-          <input type="text" placeholder="Mkoa">
-        </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <button class="order-btn" onclick="sendToGoogleForm()">
-AGIZA SASA 
+<button class="order-btn" onclick="sendToGoogleForm()">
+AGIZA SASA 🚀
 </button>
-      </td>
-    </tr>
 
-  </table>
 </div>
-  <div class="extra-image-card">
 
-  <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
-  <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg">
-  <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg">
 </div>
-</div>  
-</div>  
-</div>  
-</div>  
+
+</div>
+
+</div>
+
 <footer class="site-footer">
-  <div class="footer-nav">
-    <div class="footer-box brand-box">
-      <h3>Natural Medicine Store</h3>
-      <p>Your trusted herbal partner for natural wellness and fast delivery.</p>
-    </div>
-</div>   
-    <div class="footer-box">
-      <h4>Quick Links</h4>
-      <a href="home.html">Home</a>
-      <a href="contacts.html">Contact</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vS_bCB26eyRlg9YIRBshI_ldUnJxYEa_SJ3iwgpzoTdsbCWXqbNA8Bfqf0vTgKK1xXds-EL3Pj55qef/pubhtml" target="_blank" rel="noreferrer">Spreadsheet</a>
-    </div>
 
-    <div class="footer-box">
-      <h4>Legal</h4>
-      <a href="terms&condition.html">Terms & Conditions</a>
-      <a href="privacy.html">Privacy Policy</a>
-    </div>
+<div class="footer-bottom">
+© 2026 Natural Medicine Store
+</div>
 
-    <div class="footer-box">
-      <h4>Contact</h4>
-      <a href="https://wa.me/255662887661 " target="_blank">Message us on WhatsApp</a>
-      <p>ibrahimmartine98@gmail.com</p>
-      <p>+255675106669</p>
-      <p>Dar es Salaam, Tanzania</p>
-    </div>
-
-  <div class="footer-bottom">
-    <p>© 2026 Natural Medicine Store — crafted for natural health, trusted delivery, and wellness support.</p>
-  </div>
 </footer>
-  <script>
+
+<script>
+
+/* GET PRODUCT ID */
+const params = new URLSearchParams(window.location.search);
+
+const productId = params.get("id");
+
+/* PRODUCTS */
+const products = {
+
+1:{
+  name:"Liver Detox Tea",
+  newPrice:"69,000 TZS",
+  oldPrice:"99,000 TZS",
+
+  images:[
+    "pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg",
+    "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
+    "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
+    "pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg"
+  ],
+
+  offers:[
+    {title:"Nunua 1",price:"69,000 TZS"},
+    {title:"Nunua 2",price:"99,000 TZS"},
+    {title:"Nunua 3",price:"139,000 TZS"},
+    {title:"Nunua 4",price:"169,000 TZS"}
+  ]
+},
+
+2:{
+  name:"Immune Booster Capsules",
+  newPrice:"30,000 TZS",
+  oldPrice:"45,000 TZS",
+
+  images:[
+    "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
+    "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
+    "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
+    "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg"
+  ],
+
+  offers:[
+    {title:"Nunua 1",price:"30,000 TZS"},
+    {title:"Nunua 2",price:"50,000 TZS"},
+    {title:"Nunua 3",price:"70,000 TZS"},
+    {title:"Nunua 4",price:"90,000 TZS"}
+  ]
+},
+
+3:{
+  name:"Herbal Pain Relief Oil",
+  newPrice:"20,000 TZS",
+  oldPrice:"35,000 TZS",
+
+  images:[
+    "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
+    "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
+    "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
+    "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg"
+  ],
+
+  offers:[
+    {title:"Nunua 1",price:"20,000 TZS"},
+    {title:"Nunua 2",price:"35,000 TZS"},
+    {title:"Nunua 3",price:"50,000 TZS"},
+    {title:"Nunua 4",price:"65,000 TZS"}
+  ]
+}
+
+};
+
+/* LOAD PRODUCT */
+const product = products[productId];
+
+if(product){
+
+document.getElementById("productName").innerText =
+product.name;
+
+document.getElementById("newPrice").innerText =
+product.newPrice;
+
+document.getElementById("oldPrice").innerText =
+product.oldPrice;
+
+/* IMAGES */
+document.getElementById("mainImage1").src =
+product.images[0];
+
+document.getElementById("mainImage2").src =
+product.images[1];
+
+document.getElementById("mainImage3").src =
+product.images[2];
+
+document.getElementById("mainImage4").src =
+product.images[3];
+
+/* OFFER IMAGES */
+document.getElementById("offerImg1").src =
+product.images[0];
+
+document.getElementById("offerImg2").src =
+product.images[0];
+
+document.getElementById("offerImg3").src =
+product.images[0];
+
+document.getElementById("offerImg4").src =
+product.images[0];
+
+/* OFFERS */
+document.getElementById("offer1Title").innerText =
+product.offers[0].title;
+
+document.getElementById("offer1Price").innerText =
+product.offers[0].price;
+
+document.getElementById("offer2Title").innerText =
+product.offers[1].title;
+
+document.getElementById("offer2Price").innerText =
+product.offers[1].price;
+
+document.getElementById("offer3Title").innerText =
+product.offers[2].title;
+
+document.getElementById("offer3Price").innerText =
+product.offers[2].price;
+
+document.getElementById("offer4Title").innerText =
+product.offers[3].title;
+
+document.getElementById("offer4Price").innerText =
+product.offers[3].price;
+
+}
+
+/* OFFER SELECT */
 const offerBoxes = document.querySelectorAll(".offer-box");
 
-offerBoxes.forEach(box => {
-  box.addEventListener("click", () => {
-    
-    // remove active from all
-    offerBoxes.forEach(b => b.classList.remove("active"));
+let selectedPackage = "Nunua 1";
 
-    // add active to clicked
-    box.classList.add("active");
-  });
+offerBoxes.forEach(box=>{
+
+box.addEventListener("click",()=>{
+
+offerBoxes.forEach(b=>{
+b.classList.remove("active");
 });
-    let selectedPackage = "Nunua 2"; // default
 
-offerBoxes.forEach(box => {
-  box.addEventListener("click", () => {
-    selectedPackage = box.querySelector(".offer-title").innerText;
-  });
+box.classList.add("active");
+
+selectedPackage =
+box.querySelector(".offer-title").innerText;
+
 });
-function sendToGoogleForm() {
 
-  const name = document.querySelector(".name-box input").value;
-  const phone = document.querySelector(".phone-box input").value;
-  const region = document.querySelector(".region-box input").value;
+});
 
-  // CHANGE THIS to your Google Form link
-  const formBase = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform";
+/* GOOGLE FORM */
+function sendToGoogleForm(){
 
-  // Google Form prefill format (example)
-  const url = formBase +
-    "?entry.111111=" + encodeURIComponent(name) +
-    "&entry.222222=" + encodeURIComponent(phone) +
-    "&entry.333333=" + encodeURIComponent(region) +
-    "&entry.444444=" + encodeURIComponent(selectedPackage);
+const name =
+document.querySelector(".name-box input").value;
 
-  window.open(url, "_blank");
+const phone =
+document.querySelector(".phone-box input").value;
+
+const region =
+document.querySelector(".region-box input").value;
+
+/* CHANGE THIS */
+const formBase =
+"https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform";
+
+/* CHANGE ENTRY IDS */
+const url =
+formBase +
+"?entry.111111=" + encodeURIComponent(name) +
+"&entry.222222=" + encodeURIComponent(phone) +
+"&entry.333333=" + encodeURIComponent(region) +
+"&entry.444444=" + encodeURIComponent(selectedPackage) +
+"&entry.555555=" + encodeURIComponent(product.name);
+
+window.open(url,"_blank");
+
 }
+
 </script>
+
 </body>
 </html>
