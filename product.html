@@ -3,165 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product - Natural Medicine Store</title>
+
+<title>Product Page</title>
 
 <style>
 
 body{
   margin:0;
-  font-family:Arial, sans-serif;
-  background:#f5f7fb;
-  color:#1e3d59;
+  font-family:Arial,sans-serif;
+  background:#f5f5f5;
 }
 
-/* HEADER */
-
-.site-header{
-  background:#27ae60;
-  color:white;
-  padding:18px 30px;
+.wrapper{
+  max-width:1300px;
+  margin:auto;
+  padding:30px;
 }
 
-.site-header h1{
-  margin:0;
+/* PRODUCT LAYOUT */
+
+.product-layout{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+}
+
+/* LEFT SIDE */
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.gallery-grid img{
+  width:100%;
+  border-radius:14px;
+  object-fit:cover;
+  cursor:pointer;
+}
+
+/* RIGHT SIDE */
+
+.product-info h1{
+  font-size:58px;
+  margin:0 0 20px;
+  font-weight:500;
+}
+
+.price-row{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-bottom:30px;
+}
+
+.new-price{
+  color:#c21807;
+  font-size:42px;
+  font-weight:bold;
+}
+
+.old-price{
+  color:#777;
+  text-decoration:line-through;
   font-size:28px;
 }
 
-/* PRODUCT PAGE */
-
-.product-page{
-  max-width:1200px;
-  margin:40px auto;
-  padding:20px;
+.sale-badge{
+  background:#3559e0;
+  color:white;
+  padding:8px 14px;
+  border-radius:5px;
+  font-size:18px;
 }
 
-.product-card{
-  background:white;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  padding:25px;
-}
+/* OFFER BOX */
 
-/* GALLERY */
-
-.gallery-section{
-  width:100%;
-}
-
-.main-image{
-  width:100%;
-  height:420px;
-  object-fit:cover;
-  border-radius:16px;
-}
-
-.thumbnail-row{
-  display:flex;
-  gap:10px;
-  margin-top:15px;
-  flex-wrap:wrap;
-}
-
-.thumbnail-row img{
-  width:90px;
-  height:90px;
-  object-fit:cover;
-  border-radius:10px;
-  cursor:pointer;
-  border:3px solid transparent;
-  transition:0.3s;
-}
-
-.thumbnail-row img:hover{
-  border-color:#27ae60;
-}
-
-/* DETAILS */
-
-.product-details{
+.offer-container{
   display:flex;
   flex-direction:column;
+  gap:14px;
 }
-
-.category{
-  color:#27ae60;
-  font-weight:bold;
-  margin-bottom:8px;
-}
-
-.product-name{
-  font-size:34px;
-  margin:0 0 10px;
-}
-
-.product-price{
-  font-size:32px;
-  color:#27ae60;
-  font-weight:bold;
-  margin:10px 0;
-}
-
-.product-description{
-  line-height:1.7;
-  color:#4a5568;
-}
-
-/* OFFERS */
 
 .offer-box{
-  margin:20px 0;
-  background:#f8fff8;
-  border:2px solid #27ae60;
-  border-radius:14px;
-  padding:18px;
-}
-
-.offer-box h3{
-  margin-top:0;
-  color:#27ae60;
-}
-
-.offer-item{
+  border:2px solid #ddd;
+  border-radius:10px;
+  padding:14px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:12px 0;
-  border-bottom:1px solid #dfeee3;
+  cursor:pointer;
+  transition:0.3s;
+  background:white;
 }
 
-.offer-item:last-child{
-  border-bottom:none;
+.offer-box.active{
+  border:3px solid #d61f3d;
+  background:#ffe7ec;
 }
 
-.offer-item small{
-  background:#27ae60;
+.offer-left{
+  display:flex;
+  gap:15px;
+  align-items:center;
+}
+
+.offer-left img{
+  width:60px;
+  border-radius:6px;
+}
+
+.offer-title{
+  font-size:18px;
+  font-weight:bold;
+}
+
+.save-badge{
+  background:black;
   color:white;
-  padding:4px 8px;
-  border-radius:20px;
+  padding:4px 10px;
+  border-radius:5px;
+  font-size:13px;
+  display:inline-block;
+  margin-top:5px;
+}
+
+.offer-price{
+  text-align:right;
+}
+
+.offer-price del{
+  color:#777;
+}
+
+.offer-price strong{
+  display:block;
+  font-size:20px;
+  margin-top:5px;
+}
+
+/* SHIPPING */
+
+.shipping-box{
+  margin-top:18px;
+  border:2px solid #ddd;
+  border-radius:10px;
+  padding:18px;
+  background:white;
+  display:flex;
+  justify-content:space-between;
+  font-size:22px;
 }
 
 /* BUTTONS */
 
-.product-actions{
+.button-group{
   display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:20px;
+  gap:15px;
+  margin-top:30px;
 }
 
 .btn{
-  padding:14px 22px;
+  padding:16px 28px;
   border:none;
   border-radius:10px;
-  text-decoration:none;
   cursor:pointer;
-  font-size:15px;
+  font-size:17px;
   font-weight:bold;
-  transition:0.3s;
+  text-decoration:none;
 }
 
 .order-btn{
@@ -174,122 +184,29 @@ body{
   color:white;
 }
 
-.back-btn{
-  background:#e2e8f0;
-  color:#1e3d59;
-}
-
-.btn:hover{
-  opacity:0.9;
-}
-
 /* ABOUT */
 
 .about-product{
-  margin-top:30px;
-  padding:22px;
-  background:#f8fafc;
-  border-radius:16px;
+  margin-top:40px;
+  background:white;
+  padding:25px;
+  border-radius:14px;
 }
 
-.about-product h3{
+.about-product h2{
   margin-top:0;
-}
-
-/* THREE DOTS */
-
-.menu-container{
-  position:absolute;
-  top:20px;
-  right:20px;
-}
-
-.menu-btn{
-  background:white;
-  border:none;
-  font-size:24px;
-  cursor:pointer;
-}
-
-.menu-dropdown{
-  display:none;
-  position:absolute;
-  right:0;
-  background:white;
-  box-shadow:0 5px 20px rgba(0,0,0,0.1);
-  border-radius:10px;
-  overflow:hidden;
-}
-
-.menu-dropdown button{
-  background:none;
-  border:none;
-  width:100%;
-  padding:12px 18px;
-  cursor:pointer;
-  text-align:left;
-}
-
-.menu-dropdown button:hover{
-  background:#f5f5f5;
-}
-
-/* MODAL */
-
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.6);
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-}
-
-.modal-content{
-  background:white;
-  width:90%;
-  max-width:450px;
-  padding:30px;
-  border-radius:18px;
-}
-
-.close-btn{
-  float:right;
-  font-size:28px;
-  cursor:pointer;
-}
-
-.order-form input,
-.order-form textarea{
-  width:100%;
-  padding:14px;
-  margin-bottom:14px;
-  border-radius:10px;
-  border:1px solid #ccc;
-}
-
-.order-form button{
-  width:100%;
-  padding:14px;
-  background:#27ae60;
-  color:white;
-  border:none;
-  border-radius:10px;
-  font-size:16px;
-  cursor:pointer;
 }
 
 /* MOBILE */
 
 @media(max-width:900px){
 
-  .product-card{
+  .product-layout{
     grid-template-columns:1fr;
   }
 
-  .main-image{
-    height:320px;
+  .product-info h1{
+    font-size:38px;
   }
 
 }
@@ -299,284 +216,222 @@ body{
 
 <body>
 
-<header class="site-header">
-  <h1>Natural Herbal Medicine Store</h1>
-</header>
+<div class="wrapper">
 
-<main class="product-page">
+<div class="product-layout">
 
-<div class="product-card">
+<!-- LEFT -->
 
-  <!-- LEFT -->
+<div class="gallery-grid">
 
-  <div class="gallery-section">
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
 
-    <img 
-      id="mainImage"
-      class="main-image"
-      src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg"
-    >
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg">
 
-    <div class="thumbnail-row">
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg">
 
-      <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg"
-      onclick="changeImage(this.src)">
-
-      <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg"
-      onclick="changeImage(this.src)">
-
-      <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg"
-      onclick="changeImage(this.src)">
-
-      <img src="pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg"
-      onclick="changeImage(this.src)">
-
-    </div>
-
-  </div>
-
-  <!-- RIGHT -->
-
-  <div class="product-details">
-
-    <!-- THREE DOTS -->
-
-    <div style="position:relative;">
-
-      <div class="menu-container">
-
-        <button class="menu-btn"
-        onclick="toggleMenu()">
-        ⋮
-        </button>
-
-        <div class="menu-dropdown"
-        id="menuDropdown">
-
-          <button onclick="copyLink()">
-            Copy Product Link
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="category">
-      Detox & Cleansing
-    </div>
-
-    <h1 class="product-name">
-      Liver Detox Tea
-    </h1>
-
-    <div class="product-price">
-      TZS 25,000
-    </div>
-
-    <p class="product-description">
-      Natural cleansing for liver health with trusted herbal ingredients.
-    </p>
-
-    <!-- OFFERS -->
-
-    <div class="offer-box">
-
-      <h3>🔥 Special Offers</h3>
-
-      <div class="offer-item">
-        <span>Buy 1</span>
-        <strong>TZS 25,000</strong>
-      </div>
-
-      <div class="offer-item">
-        <span>Buy 2</span>
-        <strong>TZS 45,000</strong>
-        <small>Save 10%</small>
-      </div>
-
-      <div class="offer-item">
-        <span>Buy 3</span>
-        <strong>TZS 60,000</strong>
-        <small>Save 20%</small>
-      </div>
-
-      <div class="offer-item">
-        🚚 Free Delivery in Dar es Salaam
-      </div>
-
-    </div>
-
-    <!-- BUTTONS -->
-
-    <div class="product-actions">
-
-      <a href="index.html"
-      class="btn back-btn">
-      Back
-      </a>
-
-      <button
-      class="btn order-btn"
-      onclick="openOrderForm()">
-      Order Now
-      </button>
-
-      <a
-      class="btn whatsapp-btn"
-      href="https://wa.me/255662887661"
-      target="_blank">
-      WhatsApp
-      </a>
-
-    </div>
-
-    <!-- ABOUT -->
-
-    <div class="about-product">
-
-      <h3>About This Product</h3>
-
-      <p>
-        Liver Detox Tea is a herbal wellness product designed to support liver cleansing,
-        digestion, and natural body detoxification. It contains carefully selected natural herbs
-        trusted for everyday wellness and improved body balance.
-      </p>
-
-    </div>
-
-  </div>
+<img src="pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg">
 
 </div>
 
-</main>
+<!-- RIGHT -->
 
-<!-- MODAL -->
+<div class="product-info">
 
-<div class="modal" id="orderModal">
+<h1>Liver Detox Tea</h1>
 
-  <div class="modal-content">
+<div class="price-row">
 
-    <span class="close-btn"
-    onclick="closeOrderForm()">
-    &times;
-    </span>
+<div class="new-price">
+69,000 TZS
+</div>
 
-    <h2>Submit Your Order</h2>
+<div class="old-price">
+99,000 TZS
+</div>
 
-    <form
-      class="order-form"
-      action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfnuvNSPP-qaJKgZa5SPJWNSLyfyTn90zziI1OBH-H8wRUbew/formResponse"
-      method="POST"
-      target="_blank"
-    >
-
-      <input
-      type="text"
-      name="entry.942522329"
-      placeholder="Full Name"
-      required>
-
-      <input
-      type="tel"
-      name="entry.791209487"
-      placeholder="Phone Number"
-      required>
-
-      <input
-      type="text"
-      name="entry.498752024"
-      placeholder="Address"
-      required>
-
-      <textarea
-      name="entry.1526636738"
-      placeholder="Additional Notes">
-      </textarea>
-
-      <input
-      type="hidden"
-      name="entry.1662885166"
-      value="Liver Detox Tea - TZS 25,000">
-
-      <button type="submit">
-        Submit Order
-      </button>
-
-    </form>
-
-  </div>
+<div class="sale-badge">
+Sale
+</div>
 
 </div>
 
-<script>
+<!-- OFFERS -->
 
-/* CHANGE IMAGE */
+<div class="offer-container">
 
-function changeImage(src){
+<div class="offer-box">
 
-  document.getElementById("mainImage").src = src;
+<div class="offer-left">
 
-}
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
 
-/* MODAL */
+<div>
 
-const modal =
-document.getElementById("orderModal");
+<div class="offer-title">
+Nunua 1
+</div>
 
-function openOrderForm(){
+<div class="save-badge">
+Save 0%
+</div>
 
-  modal.style.display = "flex";
+</div>
 
-}
+</div>
 
-function closeOrderForm(){
+<div class="offer-price">
 
-  modal.style.display = "none";
+<strong>69,000 TZS</strong>
 
-}
+</div>
 
-window.addEventListener("click", (e)=>{
+</div>
 
-  if(e.target === modal){
+<div class="offer-box active">
 
-    modal.style.display = "none";
+<div class="offer-left">
 
-  }
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
 
-});
+<div>
 
-/* THREE DOTS */
+<div class="offer-title">
+Nunua 2
+</div>
 
-function toggleMenu(){
+<div class="save-badge">
+Save 20%
+</div>
 
-  const menu =
-  document.getElementById("menuDropdown");
+</div>
 
-  if(menu.style.display === "block"){
+</div>
 
-    menu.style.display = "none";
+<div class="offer-price">
 
-  }else{
+<del>138,000 TZS</del>
 
-    menu.style.display = "block";
+<strong>99,000 TZS</strong>
 
-  }
+</div>
 
-}
+</div>
 
-/* COPY LINK */
+<div class="offer-box">
 
-function copyLink(){
+<div class="offer-left">
 
-  navigator.clipboard.writeText(window.location.href);
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
 
-  alert("Product link copied!");
+<div>
 
-}
+<div class="offer-title">
+Nunua 3
+</div>
 
-</script>
+<div class="save-badge">
+Save 30%
+</div>
+
+</div>
+
+</div>
+
+<div class="offer-price">
+
+<del>207,000 TZS</del>
+
+<strong>139,000 TZS</strong>
+
+</div>
+
+</div>
+
+<div class="offer-box">
+
+<div class="offer-left">
+
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+
+<div>
+
+<div class="offer-title">
+Nunua 4
+</div>
+
+<div class="save-badge">
+Save 40%
+</div>
+
+</div>
+
+</div>
+
+<div class="offer-price">
+
+<del>276,000 TZS</del>
+
+<strong>169,000 TZS</strong>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SHIPPING -->
+
+<div class="shipping-box">
+
+<div>
+🚚 Free Shipping
+</div>
+
+<strong>
+Free
+</strong>
+
+</div>
+
+<!-- BUTTONS -->
+
+<div class="button-group">
+
+<button class="btn order-btn">
+Order Now
+</button>
+
+<a
+href="https://wa.me/255662887661"
+target="_blank"
+class="btn whatsapp-btn">
+WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ABOUT -->
+
+<div class="about-product">
+
+<h2>About This Product</h2>
+
+<p>
+
+Liver Detox Tea is a natural herbal medicine designed to support liver cleansing,
+improve digestion, and help the body remove toxins naturally.
+This product contains carefully selected herbal ingredients trusted for everyday wellness.
+
+</p>
+
+</div>
+
+</div>
 
 </body>
 </html>
