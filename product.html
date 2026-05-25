@@ -417,14 +417,57 @@ body{
   text-decoration:none;
 }
 
-.order-btn{
-  background:#27ae60;
-  color:white;
+  /* HEADER */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#ffffff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
-.whatsapp-btn{
-  background:#1e3d59;
-  color:white;
+/* LOGO */
+.logo{
+  font-size:20px;
+  font-weight:bold;
+  color:#e60000;
+}
+
+/* NAV LINKS */
+.nav-links{
+  display:flex;
+  gap:20px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
+  font-size:15px;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:#e60000;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+  .site-header{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }
+
+  .nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
 }
 
 /* ABOUT */
@@ -458,6 +501,20 @@ body{
 </head>
 
 <body>
+  <header class="site-header">
+
+  <div class="logo">
+    🛍️ MyShop
+  </div>
+
+  <nav class="nav-links">
+    <a href="#">Home</a>
+    <a href="#offers">Offers</a>
+    <a href="#order">Order</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+</header>
 
 <div class="wrapper">
 
