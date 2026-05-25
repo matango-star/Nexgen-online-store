@@ -3,20 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Product Page</title>
 
 <style>
 
-/* ================= GLOBAL ================= */
 body{
   margin:0;
   font-family:Arial,sans-serif;
   background:#f5f5f5;
-}
-
-html, body{
-  height:auto;
-  overflow-y:auto;
 }
 
 .wrapper{
@@ -25,49 +20,16 @@ html, body{
   padding:30px;
 }
 
-/* ================= HEADER ================= */
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:#fff;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 30px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.08);
-}
+/* PRODUCT LAYOUT */
 
-.logo{
-  font-size:20px;
-  font-weight:bold;
-  color:#e60000;
-}
-
-.nav-links{
-  display:flex;
-  gap:20px;
-}
-
-.nav-links a{
-  text-decoration:none;
-  color:#333;
-  font-weight:600;
-}
-
-.nav-links a:hover{
-  color:#e60000;
-}
-
-/* ================= LAYOUT ================= */
 .product-layout{
   display:grid;
   grid-template-columns:1.2fr 1fr;
   gap:40px;
-  align-items:start;
 }
 
-/* LEFT */
+/* LEFT SIDE */
+
 .gallery-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -77,82 +39,152 @@ html, body{
 .gallery-grid img{
   width:100%;
   border-radius:14px;
+  object-fit:cover;
+  cursor:pointer;
 }
 
-.left-side{
+/* ORDER  */
+.order-section{
+  margin-top:20px;
+  text-align:center;
+  font-family:Arial, sans-serif;
+}
+
+.form-title{
+  font-size:22px;
+  margin-bottom:15px;
+}
+
+.order-table{
+  margin:auto;
+  width:100%;
+  max-width:400px;
+}
+
+/* GRAY INPUT BOXES */
+.input-box{
+  display:flex;
+  align-items:center;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:12px;
+  background:#f2f2f2;
+  border:1px solid #ccc;
+}
+
+.input-box .icon{
+  margin-right:10px;
+  font-size:18px;
+  color:#666;
+}
+
+.input-box input{
+  border:none;
+  outline:none;
+  width:100%;
+  font-size:16px;
+  background:transparent;
+}
+
+/* RED BUTTON */
+.order-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:#e60000;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  transition:0.3s;
+  font-weight:bold;
+}
+
+.order-btn:hover{
+  background:#b30000;
+}
+/*left-side*/
+  .left-side{
   display:flex;
   flex-direction:column;
   gap:20px;
 }
 
-/* ABOUT + EXTRA IMAGES */
+/* ensure about never escapes */
 .about-product{
-  background:#fff;
-  padding:22px;
-  border-radius:14px;
-}
-
-.extra-image-card{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.extra-image-card img{
   width:100%;
-  border-radius:12px;
-  border:1px solid #ddd;
+  max-width:100%;
+  box-sizing:border-box;
 }
 
-/* ================= PRODUCT RIGHT ================= */
+  /* RIGHT SIDE */
 .product-info{
   padding-right:10px;
 }
+.product-layout{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+  align-items:start;
+}
+  html, body{
+  height:auto;
+  overflow-y:auto;
+}
 
 .product-info h1{
-  font-size:42px;
-  margin:0 0 20px;
+  font-size:38px;
+  margin:0 0 14px;
+  font-weight:600;
+  line-height:1.2;
 }
 
 .price-row{
   display:flex;
-  gap:15px;
-  margin-bottom:30px;
+  align-items:center;
+  gap:10px;
+  margin-bottom:22px;
+  flex-wrap:wrap;
 }
 
 .new-price{
   color:#c21807;
-  font-size:34px;
+  font-size:28px;
   font-weight:bold;
 }
 
 .old-price{
   color:#777;
   text-decoration:line-through;
+  font-size:18px;
 }
 
 .sale-badge{
   background:#3559e0;
   color:white;
-  padding:6px 10px;
+  padding:5px 10px;
   border-radius:5px;
+  font-size:13px;
 }
 
-/* ================= OFFERS ================= */
+/* OFFER BOX */
+
 .offer-container{
   display:flex;
   flex-direction:column;
-  gap:14px;
+  gap:10px;
 }
 
 .offer-box{
-  background:#fff;
   border:2px solid #ddd;
   border-radius:10px;
-  padding:14px;
+  padding:12px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  cursor:pointer;
+  transition:0.3s;
+  background:white;
 }
 
 .offer-box.active{
@@ -167,237 +199,663 @@ html, body{
 }
 
 .offer-left img{
-  width:50px;
+  width:48px;
+  height:48px;
+  object-fit:cover;
   border-radius:6px;
+}
+
+.offer-title{
+  font-size:15px;
+  font-weight:bold;
+}
+
+.save-badge{
+  background:black;
+  color:white;
+  padding:3px 8px;
+  border-radius:5px;
+  font-size:11px;
+  display:inline-block;
+  margin-top:4px;
 }
 
 .offer-price{
   text-align:right;
 }
 
-/* ================= SHIPPING ================= */
+.offer-price del{
+  color:#777;
+  font-size:13px;
+}
+
+.offer-price strong{
+  display:block;
+  font-size:17px;
+  margin-top:3px;
+}
+
+/* SHIPPING */
+
 .shipping-box{
   margin-top:15px;
-  background:#fff;
-  padding:14px;
+  border:2px solid #ddd;
   border-radius:10px;
+  padding:14px;
+  background:white;
   display:flex;
   justify-content:space-between;
+  font-size:16px;
+}
+.extra-image-card{
+  margin-top:15px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
 
-/* ================= FORM ================= */
-.order-section{
-  margin-top:20px;
-  text-align:center;
-}
-
-.order-table{
+.extra-image-card img{
   width:100%;
-  max-width:400px;
-  margin:auto;
+  border-radius:12px;
+  object-fit:cover;
+  border:1px solid #ddd;
+}
+/* BUTTONS */
+
+.button-group{
+  display:flex;
+  gap:12px;
+  margin-top:22px;
 }
 
-.input-box{
+.btn{
+  padding:13px 22px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.whatsapp-btn{
+  background:#1e3d59;
+  color:white;
+}
+
+/* ABOUT */
+
+.about-product{
+  margin-top:30px;
+  background:white;
+  padding:22px;
+  border-radius:14px;
+}
+
+.about-product h2{
+  margin-top:0;
+  font-size:24px;
+}
+
+.about-product p{
+  font-size:15px;
+  line-height:1.8;
+  color:#444;
+}
+.product-info h1{
+  font-size:58px;
+  margin:0 0 20px;
+  font-weight:500;
+}
+
+.price-row{
   display:flex;
   align-items:center;
-  padding:12px;
-  border-radius:10px;
-  background:#f2f2f2;
-  border:1px solid #ccc;
-  margin-bottom:12px;
+  gap:15px;
+  margin-bottom:30px;
 }
 
-.input-box input{
-  border:none;
-  outline:none;
-  width:100%;
-  background:transparent;
-}
-
-.order-btn{
-  width:100%;
-  padding:14px;
-  background:#e60000;
-  color:#fff;
-  border:none;
-  border-radius:10px;
+.new-price{
+  color:#c21807;
+  font-size:42px;
   font-weight:bold;
+}
+
+.old-price{
+  color:#777;
+  text-decoration:line-through;
+  font-size:28px;
+}
+
+.sale-badge{
+  background:#3559e0;
+  color:white;
+  padding:8px 14px;
+  border-radius:5px;
+  font-size:18px;
+}
+
+/* OFFER BOX */
+
+.offer-container{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.offer-box{
+  border:2px solid #ddd;
+  border-radius:10px;
+  padding:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   cursor:pointer;
+  transition:0.3s;
+  background:white;
 }
 
-/* ================= FOOTER ================= */
-.site-footer{
-  width:100%;
-  margin-top:50px;
-  background:linear-gradient(180deg,#1b3758,#12253f);
-  color:#fff;
-  padding:50px 20px;
+.offer-box.active{
+  border:3px solid #d61f3d;
+  background:#ffe7ec;
 }
 
-.footer-nav{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:30px;
-  max-width:1200px;
-  margin:auto;
-  padding-bottom:30px;
-  border-bottom:1px solid rgba(255,255,255,0.1);
+.offer-left{
+  display:flex;
+  gap:15px;
+  align-items:center;
 }
 
-.footer-box a{
+.offer-left img{
+  width:60px;
+  border-radius:6px;
+}
+
+.offer-title{
+  font-size:18px;
+  font-weight:bold;
+}
+
+.save-badge{
+  background:black;
+  color:white;
+  padding:4px 10px;
+  border-radius:5px;
+  font-size:13px;
+  display:inline-block;
+  margin-top:5px;
+}
+
+.offer-price{
+  text-align:right;
+}
+
+.offer-price del{
+  color:#777;
+}
+
+.offer-price strong{
   display:block;
-  color:#cfe2ff;
+  font-size:20px;
+  margin-top:5px;
+}
+
+/* SHIPPING */
+
+.shipping-box{
+  margin-top:18px;
+  border:2px solid #ddd;
+  border-radius:10px;
+  padding:18px;
+  background:white;
+  display:flex;
+  justify-content:space-between;
+  font-size:22px;
+}
+
+/* BUTTONS */
+
+.button-group{
+  display:flex;
+  gap:15px;
+  margin-top:30px;
+}
+
+.btn{
+  padding:16px 28px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:17px;
+  font-weight:bold;
   text-decoration:none;
-  margin:6px 0;
 }
 
-.footer-bottom{
-  text-align:center;
-  margin-top:20px;
-  color:#a9c7e4;
+  /* HEADER */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#ffffff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
-/* ================= MOBILE ================= */
+/* LOGO */
+.logo{
+  font-size:20px;
+  font-weight:bold;
+  color:#e60000;
+}
+
+/* NAV LINKS */
+.nav-links{
+  display:flex;
+  gap:20px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
+  font-size:15px;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:#e60000;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+  .site-header{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }
+
+  .nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
+}
+
+  .site-footer {
+  background: linear-gradient(180deg, #1b3758 0%, #12253f 100%);
+  color: white;
+  padding: 60px 24px 28px;
+}
+
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  margin: auto;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-box {
+  min-width: 180px;
+}
+
+.brand-box h3 {
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.footer-box h4 {
+  margin-bottom: 16px;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+.footer-box p {
+  color: #d8e2f2;
+  font-size: 14px;
+  margin: 0 0 10px;
+  line-height: 1.8;
+}
+
+.footer-box a {
+  display: block;
+  color: #c8def4;
+  text-decoration: none;
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.footer-box a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  text-align: center;
+  color: #a9c7e4;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+/* ABOUT */
+
+.about-product{
+  margin-top:40px;
+  background:white;
+  padding:25px;
+  border-radius:14px;
+}
+
+.about-product h2{
+  margin-top:0;
+}
+
+/* MOBILE */
+
 @media(max-width:900px){
+
   .product-layout{
     grid-template-columns:1fr;
   }
 
-  .gallery-grid{
-    grid-template-columns:1fr;
+  .product-info h1{
+    font-size:38px;
   }
 
-  .product-info h1{
-    font-size:32px;
-  }
 }
 
 </style>
 </head>
 
 <body>
+  <header class="site-header">
 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="logo">Nexgen Online Shop</div>
+  <div class="logo">
+Nexgen Online Shop
+  </div>
+
   <nav class="nav-links">
     <a href="#">Home</a>
-    <a href="#">Offers</a>
-    <a href="#">Order</a>
-    <a href="#">Contact</a>
+    <a href="#offers">Offers</a>
+    <a href="#order">Order</a>
+    <a href="#contact">Contact</a>
   </nav>
+
 </header>
 
 <div class="wrapper">
 
 <div class="product-layout">
 
-<!-- LEFT SIDE -->
-<div class="left-side">
+<!-- LEFT -->
 
-  <div class="gallery-grid">
-    <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
-    <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg">
-    <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg">
-    <img src="pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg">
-  </div>
+<div class="gallery-grid">
 
-  <div class="about-product">
-    <h2>About This Product</h2>
-    <p>Liver Detox Tea helps cleanse liver and improve digestion naturally.</p>
-  </div>
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
 
-  <div class="extra-image-card">
-    <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
-    <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg">
-    <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg">
-  </div>
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg">
+
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg">
+
+<img src="pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg">
 
 </div>
+    <div class="about-product">
 
-<!-- RIGHT SIDE -->
+
+<!-- RIGHT -->
+
 <div class="product-info">
 
 <h1>Liver Detox Tea</h1>
 
 <div class="price-row">
-  <div class="new-price">69,000 TZS</div>
-  <div class="old-price">99,000 TZS</div>
-  <div class="sale-badge">Sale</div>
+
+<div class="new-price">
+69,000 TZS
+</div>
+
+<div class="old-price">
+99,000 TZS
+</div>
+
+<div class="sale-badge">
+Sale
+</div>
+
 </div>
 
 <!-- OFFERS -->
+
 <div class="offer-container">
-  <div class="offer-box">Nunua 1</div>
-  <div class="offer-box active">Nunua 2</div>
-  <div class="offer-box">Nunua 3</div>
+
+<div class="offer-box">
+
+<div class="offer-left">
+
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+
+<div>
+
+<div class="offer-title">
+Nunua 1
 </div>
+
+<div class="save-badge">
+Save 0%
+</div>
+
+</div>
+
+</div>
+
+<div class="offer-price">
+
+<strong>69,000 TZS</strong>
+
+</div>
+
+</div>
+
+<div class="offer-box active">
+
+<div class="offer-left">
+
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+
+<div>
+
+<div class="offer-title">
+Nunua 2
+</div>
+
+<div class="save-badge">
+Save 20%
+</div>
+
+</div>
+
+</div>
+
+<div class="offer-price">
+
+<del>138,000 TZS</del>
+
+<strong>99,000 TZS</strong>
+
+</div>
+
+</div>
+
+<div class="offer-box">
+
+<div class="offer-left">
+
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+
+<div>
+
+<div class="offer-title">
+Nunua 3
+</div>
+
+<div class="save-badge">
+Save 30%
+</div>
+
+</div>
+
+</div>
+
+<div class="offer-price">
+
+<del>207,000 TZS</del>
+
+<strong>139,000 TZS</strong>
+
+</div>
+
+</div>
+
+<div class="offer-box">
+
+<div class="offer-left">
+
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+
+<div>
+
+<div class="offer-title">
+Nunua 4
+</div>
+
+<div class="save-badge">
+Save 40%
+</div>
+
+</div>
+
+</div>
+
+<div class="offer-price">
+
+<del>276,000 TZS</del>
+
+<strong>169,000 TZS</strong>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SHIPPING -->
 
 <div class="shipping-box">
-  <span>🚚 Free Shipping</span>
-  <strong>Free</strong>
+
+<div>
+🚚 Free Shipping
 </div>
 
-<!-- FORM -->
+<strong>
+Free
+</strong>
+
+</div>
+
+  <!-- ORDER FORM SECTION -->
 <div class="order-section">
 
-  <h2>Jaza fomu 🛒</h2>
+  <h2 class="form-title">Jaza fomu hii kuagiza 🛒👇</h2>
 
   <table class="order-table">
 
-    <tr><td>
-      <div class="input-box"><input placeholder="Jina Kamili"></div>
-    </td></tr>
+    <tr>
+      <td>
+        <div class="input-box name-box">
+          <span class="icon">👤</span>
+          <input type="text" placeholder="Jina Kamili">
+        </div>
+      </td>
+    </tr>
 
-    <tr><td>
-      <div class="input-box"><input placeholder="Namba ya simu"></div>
-    </td></tr>
+    <tr>
+      <td>
+        <div class="input-box phone-box">
+          <span class="icon">📞</span>
+          <input type="tel" placeholder="Namba ya simu">
+        </div>
+      </td>
+    </tr>
 
-    <tr><td>
-      <div class="input-box"><input placeholder="Mkoa"></div>
-    </td></tr>
+    <tr>
+      <td>
+        <div class="input-box region-box">
+          <span class="icon">📍</span>
+          <input type="text" placeholder="Mkoa">
+        </div>
+      </td>
+    </tr>
 
-    <tr><td>
-      <button class="order-btn">AGIZA SASA 🚀</button>
-    </td></tr>
+    <tr>
+      <td>
+        <button class="order-btn">AGIZA SASA 🚀</button>
+      </td>
+    </tr>
 
   </table>
-
 </div>
+  <div class="extra-image-card">
 
+  <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+  <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg">
+  <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg">
 </div>
-</div>
-
-</div>
-
-<!-- FOOTER -->
 <footer class="site-footer">
-
   <div class="footer-nav">
+    <div class="footer-box brand-box">
+      <h3>Natural Medicine Store</h3>
+      <p>Your trusted herbal partner for natural wellness and fast delivery.</p>
+    </div>
+</div>
+</div>
+</div>
 
     <div class="footer-box">
-      <h3>Natural Store</h3>
-      <p>Trusted herbal products delivery.</p>
+      <h4>Quick Links</h4>
+      <a href="home.html">Home</a>
+      <a href="contacts.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vS_bCB26eyRlg9YIRBshI_ldUnJxYEa_SJ3iwgpzoTdsbCWXqbNA8Bfqf0vTgKK1xXds-EL3Pj55qef/pubhtml" target="_blank" rel="noreferrer">Spreadsheet</a>
     </div>
 
     <div class="footer-box">
-      <h4>Links</h4>
-      <a href="#">Home</a>
-      <a href="#">Contact</a>
+      <h4>Legal</h4>
+      <a href="terms&condition.html">Terms & Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
     </div>
 
     <div class="footer-box">
       <h4>Contact</h4>
-      <p>WhatsApp +255...</p>
+      <a href="https://wa.me/255662887661 " target="_blank">Message us on WhatsApp</a>
+      <p>ibrahimmartine98@gmail.com</p>
+      <p>+255675106669</p>
+      <p>Dar es Salaam, Tanzania</p>
     </div>
-
   </div>
 
   <div class="footer-bottom">
-    © 2026 Natural Medicine Store
+    <p>© 2026 Natural Medicine Store — crafted for natural health, trusted delivery, and wellness support.</p>
   </div>
-
 </footer>
-
 </body>
 </html>
