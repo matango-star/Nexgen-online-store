@@ -45,6 +45,197 @@ body{
 
 /* RIGHT SIDE */
 
+
+
+  /* RIGHT SIDE */
+
+.product-info{
+  max-height:90vh;
+  overflow-y:auto;
+  padding-right:10px;
+}
+
+.product-info::-webkit-scrollbar{
+  width:6px;
+}
+
+.product-info::-webkit-scrollbar-thumb{
+  background:#ccc;
+  border-radius:10px;
+}
+
+.product-info h1{
+  font-size:38px;
+  margin:0 0 14px;
+  font-weight:600;
+  line-height:1.2;
+}
+
+.price-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:22px;
+  flex-wrap:wrap;
+}
+
+.new-price{
+  color:#c21807;
+  font-size:28px;
+  font-weight:bold;
+}
+
+.old-price{
+  color:#777;
+  text-decoration:line-through;
+  font-size:18px;
+}
+
+.sale-badge{
+  background:#3559e0;
+  color:white;
+  padding:5px 10px;
+  border-radius:5px;
+  font-size:13px;
+}
+
+/* OFFER BOX */
+
+.offer-container{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.offer-box{
+  border:2px solid #ddd;
+  border-radius:10px;
+  padding:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  transition:0.3s;
+  background:white;
+}
+
+.offer-box.active{
+  border:2px solid #d61f3d;
+  background:#ffe7ec;
+}
+
+.offer-left{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.offer-left img{
+  width:48px;
+  height:48px;
+  object-fit:cover;
+  border-radius:6px;
+}
+
+.offer-title{
+  font-size:15px;
+  font-weight:bold;
+}
+
+.save-badge{
+  background:black;
+  color:white;
+  padding:3px 8px;
+  border-radius:5px;
+  font-size:11px;
+  display:inline-block;
+  margin-top:4px;
+}
+
+.offer-price{
+  text-align:right;
+}
+
+.offer-price del{
+  color:#777;
+  font-size:13px;
+}
+
+.offer-price strong{
+  display:block;
+  font-size:17px;
+  margin-top:3px;
+}
+
+/* SHIPPING */
+
+.shipping-box{
+  margin-top:15px;
+  border:2px solid #ddd;
+  border-radius:10px;
+  padding:14px;
+  background:white;
+  display:flex;
+  justify-content:space-between;
+  font-size:16px;
+}
+
+/* BUTTONS */
+
+.button-group{
+  display:flex;
+  gap:12px;
+  margin-top:22px;
+}
+
+.btn{
+  padding:13px 22px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.order-btn{
+  background:#27ae60;
+  color:white;
+}
+
+.whatsapp-btn{
+  background:#1e3d59;
+  color:white;
+}
+
+/* ABOUT */
+
+.about-product{
+  margin-top:30px;
+  background:white;
+  padding:22px;
+  border-radius:14px;
+}
+
+.about-product h2{
+  margin-top:0;
+  font-size:24px;
+}
+
+.about-product p{
+  font-size:15px;
+  line-height:1.8;
+  color:#444;
+}
+
+
+
+
+
+
+
+  
+
 .product-info h1{
   font-size:58px;
   margin:0 0 20px;
