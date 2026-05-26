@@ -1075,10 +1075,7 @@ if(delElement){
 }
 
 /* PACKAGE SELECTION */
-const offerBoxes =
-document.querySelectorAll(".offer-box");
 
-let selectedPackage = "Nunua 1";
 
 offerBoxes.forEach(box => {
 
@@ -1100,7 +1097,6 @@ offerBoxes.forEach(box => {
 
 });
 
-/* GOOGLE FORM */
 function sendToGoogleForm(){
 
   const name =
@@ -1118,8 +1114,74 @@ function sendToGoogleForm(){
     alert("Jaza taarifa zote kwanza");
 
     return;
-
   }
+
+  /* GOOGLE FORM URL */
+  const formBase =
+  "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse";
+
+  const url =
+    formBase +
+
+    "?entry.111111=" +
+    encodeURIComponent(name) +
+
+    "&entry.222222=" +
+    encodeURIComponent(phone) +
+
+    "&entry.333333=" +
+    encodeURIComponent(region) +
+
+    "&entry.444444=" +
+    encodeURIComponent(
+      selectedOffer.title + " - " + selectedOffer.price
+    ) +
+
+    "&entry.555555=" +
+    encodeURIComponent(product.name);
+
+  window.open(url, "_blank");
+
+}
+  /* OFFER SELECTION */
+
+let selectedOffer = {
+  title: "Nunua 2",
+  price: "99,000 TZS"
+};
+
+const offerBoxes = document.querySelectorAll(".offer-box");
+
+offerBoxes.forEach(box => {
+
+  box.addEventListener("click", () => {
+
+    /* REMOVE ACTIVE */
+    offerBoxes.forEach(b => {
+      b.classList.remove("active");
+    });
+
+    /* ADD ACTIVE */
+    box.classList.add("active");
+
+    /* GET OFFER INFO */
+    const title =
+    box.querySelector(".offer-title").innerText;
+
+    const price =
+    box.querySelector(".offer-price strong").innerText;
+
+    /* SAVE SELECTED OFFER */
+    selectedOffer = {
+      title,
+      price
+    };
+
+    console.log(selectedOffer);
+
+  });
+
+});
 
   /* GOOGLE FORM LINK */
   const formBase =
