@@ -883,6 +883,8 @@ Nexgen Online Shop
   </div>
 </footer>
   <script>
+<script>
+
 /* GET PRODUCT ID */
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
@@ -903,117 +905,33 @@ const products = {
       "pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg"
     ],
 
-   offers: [
-
-  {
-    title:"Nunua 1",
-    oldPrice:"",
-    newPrice:"69,000 TZS"
-  },
-
-  {
-    title:"Nunua 2",
-    oldPrice:"138,000 TZS",
-    newPrice:"99,000 TZS"
-  },
-
-  {
-    title:"Nunua 3",
-    oldPrice:"207,000 TZS",
-    newPrice:"139,000 TZS"
-  },
-
-  {
-    title:"Nunua 4",
-    oldPrice:"276,000 TZS",
-    newPrice:"169,000 TZS"
-  }
-
-]
-
-  },
-
-  2: {
-
-    name: "Immune Booster Capsules",
-    newPrice: "30,000 TZS",
-    oldPrice: "45,000 TZS",
-
-    images: [
-      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
-      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
-      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
-      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg"
-    ],
-
     offers: [
-       {
-    title:"Nunua 1",
-    oldPrice:"99,000 TZS",
-    newPrice:"69,000 TZS"
-  },
 
-  {
-    title:"Nunua 2",
-    oldPrice:"138,000 TZS",
-    newPrice:"99,000 TZS"
-  },
+      {
+        title:"Nunua 1",
+        oldPrice:"",
+        newPrice:"69,000 TZS"
+      },
 
-  {
-    title:"Nunua 3",
-    oldPrice:"207,000 TZS",
-    newPrice:"139,000 TZS"
-  },
+      {
+        title:"Nunua 2",
+        oldPrice:"138,000 TZS",
+        newPrice:"99,000 TZS"
+      },
 
-  {
-    title:"Nunua 4",
-    oldPrice:"276,000 TZS",
-    newPrice:"169,000 TZS"
-  }
+      {
+        title:"Nunua 3",
+        oldPrice:"207,000 TZS",
+        newPrice:"139,000 TZS"
+      },
+
+      {
+        title:"Nunua 4",
+        oldPrice:"276,000 TZS",
+        newPrice:"169,000 TZS"
+      }
+
     ]
-
-  },
-
-  3: {
-
-    name: "Herbal Pain Relief Oil",
-    newPrice: "20,000 TZS",
-    oldPrice: "35,000 TZS",
-
-    images: [
-      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
-      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
-      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
-      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg"
-    ],
-
-offers: [
-
-  {
-    title:"Nunua 1",
-    oldPrice:"",
-    newPrice:"20,000 TZS"
-  },
-
-  {
-    title:"Nunua 2",
-    oldPrice:"40,000 TZS",
-    newPrice:"35,000 TZS"
-  },
-
-  {
-    title:"Nunua 3",
-    oldPrice:"60,000 TZS",
-    newPrice:"50,000 TZS"
-  },
-
-  {
-    title:"Nunua 4",
-    oldPrice:"80,000 TZS",
-    newPrice:"65,000 TZS"
-  }
-
-]
 
   }
 
@@ -1035,7 +953,7 @@ if(product){
   document.getElementById("oldPrice").innerText =
   product.oldPrice;
 
-  /* MAIN IMAGES */
+  /* IMAGES */
   document.getElementById("mainImage1").src =
   product.images[0];
 
@@ -1048,54 +966,80 @@ if(product){
   document.getElementById("mainImage4").src =
   product.images[3];
 
-  /* OFFER BOXES */
+  /* LOAD OFFERS */
   const offerBoxes =
   document.querySelectorAll(".offer-box");
 
   offerBoxes.forEach((box,index)=>{
 
-    if(product.offers[index]){
+    const offer = product.offers[index];
+
+    if(offer){
 
       box.querySelector(".offer-title").innerText =
-      product.offers[index].title;
+      offer.title;
 
       box.querySelector(".offer-price strong").innerText =
-      product.offers[index].newPrice;
+      offer.newPrice;
 
-   const delElement =
-box.querySelector(".offer-price del");
+      const delElement =
+      box.querySelector(".offer-price del");
 
-if(delElement){
-  delElement.innerText =
-  product.offers[index].oldPrice || "";
-}
+      if(delElement){
+
+        delElement.innerText =
+        offer.oldPrice;
+
+      }
+
+    }
 
   });
 
 }
 
-/* PACKAGE SELECTION */
+/* SELECT OFFER */
 
+let selectedOffer = {
+  title:"Nunua 2",
+  price:"99,000 TZS"
+};
+
+const offerBoxes =
+document.querySelectorAll(".offer-box");
 
 offerBoxes.forEach(box => {
 
-  box.addEventListener("click", () => {
+  box.addEventListener("click", ()=>{
 
     /* REMOVE ACTIVE */
-    offerBoxes.forEach(b =>
-      b.classList.remove("active")
-    );
+    offerBoxes.forEach(b=>{
+      b.classList.remove("active");
+    });
 
     /* ADD ACTIVE */
     box.classList.add("active");
 
-    /* SAVE SELECTED PACKAGE */
-    selectedPackage =
+    /* GET OFFER */
+    const title =
     box.querySelector(".offer-title").innerText;
+
+    const price =
+    box.querySelector(".offer-price strong").innerText;
+
+    /* SAVE */
+    selectedOffer = {
+      title,
+      price
+    };
+
+    console.log(selectedOffer);
 
   });
 
 });
+
+/* GOOGLE FORM */
 
 function sendToGoogleForm(){
 
@@ -1114,9 +1058,10 @@ function sendToGoogleForm(){
     alert("Jaza taarifa zote kwanza");
 
     return;
+
   }
 
-  /* GOOGLE FORM URL */
+  /* GOOGLE FORM */
   const formBase =
   "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse";
 
@@ -1140,117 +1085,11 @@ function sendToGoogleForm(){
     "&entry.555555=" +
     encodeURIComponent(product.name);
 
-  window.open(url, "_blank");
-
-}
-  /* OFFER SELECTION */
-
-let selectedOffer = {
-  title: "Nunua 2",
-  price: "99,000 TZS"
-};
-
-const offerBoxes = document.querySelectorAll(".offer-box");
-
-offerBoxes.forEach(box => {
-
-  box.addEventListener("click", () => {
-
-    /* REMOVE ACTIVE */
-    offerBoxes.forEach(b => {
-      b.classList.remove("active");
-    });
-
-    /* ADD ACTIVE */
-    box.classList.add("active");
-
-    /* GET OFFER INFO */
-    const title =
-    box.querySelector(".offer-title").innerText;
-
-    const price =
-    box.querySelector(".offer-price strong").innerText;
-
-    /* SAVE SELECTED OFFER */
-    selectedOffer = {
-      title,
-      price
-    };
-
-    console.log(selectedOffer);
-
-  });
-
-});
-
-  /* GOOGLE FORM LINK */
-  const formBase =
-  "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse";
-
-  const url =
-
-    formBase +
-
-    "?entry.111111=" +
-    encodeURIComponent(name) +
-
-    "&entry.222222=" +
-    encodeURIComponent(phone) +
-
-    "&entry.333333=" +
-    encodeURIComponent(region) +
-
-    "&entry.444444=" +
-    encodeURIComponent(selectedPackage) +
-
-    "&entry.555555=" +
-    encodeURIComponent(product.name);
-          
   window.open(url,"_blank");
 
 }
-    let selectedOffer = null;
 
-const offerBoxes = document.querySelectorAll(".offer-box");
-
-offerBoxes.forEach((box, index) => {
-
-  box.addEventListener("click", () => {
-
-    // remove active from all
-    offerBoxes.forEach(b => b.classList.remove("active"));
-
-    // add active to clicked
-    box.classList.add("active");
-
-    // store selected offer
-    const title = box.querySelector(".offer-title").innerText;
-    const price = box.querySelector(".offer-price strong").innerText;
-    const oldPriceEl = box.querySelector(".offer-price del");
-
-    const oldPrice = oldPriceEl ? oldPriceEl.innerText : "";
-
-    selectedOffer = {
-      title,
-      price,
-      oldPrice
-    };
-
-  });
-
-});
-    if(!selectedOffer){
-  alert("Chagua offer kwanza (Nunua 1, 2, 3...)");
-  return;
-}
-    const url =
-  formBase +
-  "?entry.111111=" + encodeURIComponent(name) +
-  "&entry.222222=" + encodeURIComponent(phone) +
-  "&entry.333333=" + encodeURIComponent(region) +
-  "&entry.444444=" + encodeURIComponent(selectedOffer.title + " - " + selectedOffer.price) +
-  "&entry.555555=" + encodeURIComponent(product.name);
-
+</script>
 </script>
 </body>
 </html>
