@@ -599,13 +599,13 @@ Nexgen Online Shop
 
 <div class="gallery-grid">
 
-<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+<img id="mainImage1" src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
 
-<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg">
+<img id="mainImage2" src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg">
 
-<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg">
+<img id="mainImage3" src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg">
 
-<img src="pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg">
+<img id="mainImage4" src="pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg">
 
 </div>
     <div class="about-product">
@@ -614,12 +614,12 @@ Nexgen Online Shop
 <!-- RIGHT -->
 
 <div class="product-info">
-<h1>Liver Cleansing Tea</h1>
+<h1 id="productName"></h1>
 
 <div class="price-row">
 
-<div class="new-price"> 69,000 TZS </div>
-<div class="old-price">99,000 TZS</div>
+<div class="new-price" id="newPrice"></div>
+<div class="old-price" id="oldPrice"></div>
 
 <div class="sale-badge">
 Sale
@@ -639,7 +639,8 @@ Sale
 
 <div>
 
-<div class="offer-title">
+<div class="offer-title" id="offer1Title"></div>
+  <strong id="offer1Price"></strong>
 Nunua 1
 </div>
 
@@ -667,7 +668,8 @@ Save 0%
 
 <div>
 
-<div class="offer-title">
+<div class="offer-title" id="offer2Title"></div>
+<strong id="offer2Price"></strong>
 Nunua 2
 </div>
 
@@ -696,8 +698,8 @@ Save 20%
 <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
 
 <div>
-
-<div class="offer-title">
+<div class="offer-title" id="offer3Title"></div>
+<strong id="offer3Price"></strong>
 Nunua 3
 </div>
 
@@ -727,7 +729,8 @@ Save 30%
 
 <div>
 
-<div class="offer-title">
+<div class="offer-title" id="offer4Title"></div>
+  <strong id="offer4Price"></strong>
 Nunua 4
 </div>
 
@@ -889,6 +892,241 @@ function sendToGoogleForm() {
     "&entry.444444=" + encodeURIComponent(selectedPackage);
 
   window.open(url, "_blank");
+}
+  <script>
+  <script>
+
+/* GET PRODUCT ID */
+const params = new URLSearchParams(window.location.search);
+
+const productId = params.get("id");
+
+/* PRODUCT DATABASE */
+const products = {
+
+  1: {
+
+    name: "Liver Detox Tea",
+
+    newPrice: "69,000 TZS",
+
+    oldPrice: "99,000 TZS",
+
+    images: [
+
+      "pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg",
+
+      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
+
+      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
+
+      "pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg"
+
+    ],
+
+    offers: [
+
+      {title:"Nunua 1", price:"69,000 TZS"},
+
+      {title:"Nunua 2", price:"99,000 TZS"},
+
+      {title:"Nunua 3", price:"139,000 TZS"},
+
+      {title:"Nunua 4", price:"169,000 TZS"}
+
+    ]
+
+  },
+
+  2: {
+
+    name: "Immune Booster Capsules",
+
+    newPrice: "30,000 TZS",
+
+    oldPrice: "45,000 TZS",
+
+    images: [
+
+      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
+
+      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
+
+      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
+
+      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg"
+
+    ],
+
+    offers: [
+
+      {title:"Nunua 1", price:"30,000 TZS"},
+
+      {title:"Nunua 2", price:"50,000 TZS"},
+
+      {title:"Nunua 3", price:"70,000 TZS"},
+
+      {title:"Nunua 4", price:"90,000 TZS"}
+
+    ]
+
+  },
+
+  3: {
+
+    name: "Herbal Pain Relief Oil",
+
+    newPrice: "20,000 TZS",
+
+    oldPrice: "35,000 TZS",
+
+    images: [
+
+      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
+
+      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
+
+      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
+
+      "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg"
+
+    ],
+
+    offers: [
+
+      {title:"Nunua 1", price:"20,000 TZS"},
+
+      {title:"Nunua 2", price:"35,000 TZS"},
+
+      {title:"Nunua 3", price:"50,000 TZS"},
+
+      {title:"Nunua 4", price:"65,000 TZS"}
+
+    ]
+
+  }
+
+};
+
+/* LOAD PRODUCT */
+
+const product = products[productId];
+
+if(product){
+
+  document.getElementById("productName").innerText =
+  product.name;
+
+  document.getElementById("newPrice").innerText =
+  product.newPrice;
+
+  document.getElementById("oldPrice").innerText =
+  product.oldPrice;
+
+  /* IMAGES */
+
+  document.getElementById("mainImage1").src =
+  product.images[0];
+
+  document.getElementById("mainImage2").src =
+  product.images[1];
+
+  document.getElementById("mainImage3").src =
+  product.images[2];
+
+  document.getElementById("mainImage4").src =
+  product.images[3];
+
+  /* OFFERS */
+
+  const offerBoxes =
+  document.querySelectorAll(".offer-box");
+
+  offerBoxes.forEach((box,index)=>{
+
+    if(product.offers[index]){
+
+      box.querySelector(".offer-title").innerText =
+      product.offers[index].title;
+
+      box.querySelector(".offer-price strong").innerText =
+      product.offers[index].price;
+
+    }
+
+  });
+
+}
+
+/* PACKAGE SELECTION */
+
+const offerBoxes =
+document.querySelectorAll(".offer-box");
+
+let selectedPackage = "Nunua 1";
+
+offerBoxes.forEach(box => {
+
+  box.addEventListener("click", () => {
+
+    offerBoxes.forEach(b =>
+      b.classList.remove("active")
+    );
+
+    box.classList.add("active");
+
+    selectedPackage =
+    box.querySelector(".offer-title").innerText;
+
+  });
+
+});
+
+/* SEND TO GOOGLE FORM */
+
+function sendToGoogleForm(){
+
+  const name =
+  document.querySelector(".name-box input").value;
+
+  const phone =
+  document.querySelector(".phone-box input").value;
+
+  const region =
+  document.querySelector(".region-box input").value;
+
+  if(name === "" || phone === "" || region === ""){
+
+    alert("Jaza taarifa zote kwanza");
+
+    return;
+
+  }
+
+  const formBase =
+  "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse";
+
+  const url =
+
+    formBase +
+
+    "?entry.111111=" +
+    encodeURIComponent(name) +
+
+    "&entry.222222=" +
+    encodeURIComponent(phone) +
+
+    "&entry.333333=" +
+    encodeURIComponent(region) +
+
+    "&entry.444444=" +
+    encodeURIComponent(selectedPackage) +
+
+    "&entry.555555=" +
+    encodeURIComponent(product.name);
+
+  window.open(url,"_blank");
+
 }
 </script>
 </body>
