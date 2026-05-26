@@ -561,27 +561,19 @@ body{
 .about-product h2{
   margin-top:0;
 }
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-  .product-layout{
-    grid-template-columns:1fr;
-  }
-
+ .product-layout{
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:35px;
+  align-items:start;
+}
   .product-info h1{
     font-size:38px;
   }
 
 }
 /* RIGHT SIDE */
-.right-side{
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  gap:22px;
-}
+
   .extra-image-card{
   background:white;
   padding:15px;
@@ -614,238 +606,192 @@ Nexgen Online Shop
 
 <div class="wrapper">
 
-<div class="product-layout">
+  <div class="product-layout">
 
-<!-- LEFT -->
+    <!-- LEFT SIDE -->
+    <div class="left-side">
 
-<div class="gallery-grid">
+      <div class="gallery-grid">
 
-<img id="mainImage1"
-src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+        <img id="mainImage1"
+        src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
 
-<img id="mainImage2"
-src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg">
+        <img id="mainImage2"
+        src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg">
 
-<img id="mainImage3"
-src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg">
+        <img id="mainImage3"
+        src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg">
 
-<img id="mainImage4"
-src="pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg">
-</div>
-</div>
-</div>
+        <img id="mainImage4"
+        src="pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg">
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-side">
+
+      <!-- PRODUCT INFO -->
+      <div class="product-info">
+
+        <h1 id="productName">Liver Cleansing Tea</h1>
+
+        <div class="price-row">
+
+          <div class="new-price" id="newPrice">
+            69,000 TZS
+          </div>
+
+          <div class="old-price" id="oldPrice">
+            99,000 TZS
+          </div>
+
+          <div class="sale-badge">
+            Sale
+          </div>
+
+        </div>
+
+        <!-- OFFERS -->
+        <div class="offer-container">
+
+          <!-- OFFER 1 -->
+          <div class="offer-box">
+
+            <div class="offer-left">
+
+              <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+
+              <div>
+
+                <div class="offer-title">
+                  Nunua 1
+                </div>
+
+                <div class="save-badge">
+                  Save 0%
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="offer-price">
+              <strong>69,000 TZS</strong>
+            </div>
+
+          </div>
+
+          <!-- OFFER 2 -->
+          <div class="offer-box active">
+
+            <div class="offer-left">
+
+              <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+
+              <div>
+
+                <div class="offer-title">
+                  Nunua 2
+                </div>
+
+                <div class="save-badge">
+                  Save 20%
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="offer-price">
+              <del>138,000 TZS</del>
+              <strong>99,000 TZS</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- SHIPPING -->
+        <div class="shipping-box">
+
+          <div>🚚 Free Shipping</div>
+
+          <strong>Free</strong>
+
+        </div>
+
+      </div>
+
+      <!-- ORDER FORM -->
+      <div class="order-section">
+
+        <h2 class="form-title">
+          Jaza fomu hii kuagiza 🛒👇
+        </h2>
+
+        <table class="order-table">
+
+          <tr>
+            <td>
+              <div class="input-box name-box">
+                <span class="icon">👤</span>
+                <input type="text" placeholder="Jina Kamili">
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="input-box phone-box">
+                <span class="icon">📞</span>
+                <input type="tel" placeholder="Namba ya simu">
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="input-box region-box">
+                <span class="icon">📍</span>
+                <input type="text" placeholder="Mkoa">
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <button class="order-btn"
+              onclick="sendToGoogleForm()">
+
+                AGIZA SASA
+
+              </button>
+            </td>
+          </tr>
+
+        </table>
+
+      </div>
+
+      <!-- EXTRA IMAGES -->
+      <div class="extra-image-card">
+
+        <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+
+        <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg">
+
+        <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg">
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div> 
   
-<div class="right-side">
-<div class="product-info">
-<h1 id="productName">Liver Cleansing Tea</h1>
-
-<div class="price-row">
-
-<div class="new-price" id="newPrice"> 69,000 TZS</div>
-<div class="old-price" id="oldPrice"> 99,000 TZS</div>
-
-<div class="sale-badge">
-Sale
-</div>
-
-</div>
-
-<!-- OFFERS -->
-
-<div class="offer-container">
-
-<div class="offer-box">
-
-<div class="offer-left">
-
-<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
-
-<div>
-
-<div class="offer-title" id="offer1Title"></div>
-  <strong id="offer1Price"></strong>
-Nunua 1
-</div>
-
-<div class="save-badge">
-Save 0%
-</div>
-
-</div>
-
-</div>
-
-<div class="offer-price">
-
-<strong>69,000 TZS</strong>
-
-</div>
-
-</div>
-
-<div class="offer-box active">
-
-<div class="offer-left">
-
-<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
-
-<div>
-
-<div class="offer-title" id="offer2Title"></div>
-<strong id="offer2Price"></strong>
-Nunua 2
-</div>
-
-<div class="save-badge">
-Save 20%
-</div>
-
-</div>
-
-</div>
-
-<div class="offer-price">
-
-<del>138,000 TZS</del>
-
-<strong>99,000 TZS</strong>
-
-</div>
-
-</div>
-
-<div class="offer-box">
-
-<div class="offer-left">
-
-<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
-
-<div>
-<div class="offer-title" id="offer3Title"></div>
-<strong id="offer3Price"></strong>
-Nunua 3
-</div>
-
-<div class="save-badge">
-Save 30%
-</div>
-
-</div>
-
-</div>
-
-<div class="offer-price">
-
-<del>207,000 TZS</del>
-
-<strong>139,000 TZS</strong>
-
-</div>
-
-</div>
-
-<div class="offer-box">
-
-<div class="offer-left">
-
-<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
-
-<div>
-
-<div class="offer-title" id="offer4Title"></div>
-  <strong id="offer4Price"></strong>
-Nunua 4
-</div>
-
-<div class="save-badge">
-Save 40%
-</div>
-
-</div>
-
-</div>
-
-<div class="offer-price">
-
-<del>276,000 TZS</del>
-
-<strong>169,000 TZS</strong>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- SHIPPING -->
-
-<div class="shipping-box">
-
-<div>
-🚚 Free Shipping
-</div>
-
-<strong>
-Free
-</strong>
-
-</div>
-</div>
-
-<!-- ORDER FORM -->
-<div class="order-section">
-
-  <h2 class="form-title">Jaza fomu hii kuagiza 🛒👇</h2>
-
-  <table class="order-table">
-
-    <tr>
-      <td>
-        <div class="input-box name-box">
-          <span class="icon">👤</span>
-          <input type="text" placeholder="Jina Kamili">
-        </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <div class="input-box phone-box">
-          <span class="icon">📞</span>
-          <input type="tel" placeholder="Namba ya simu">
-        </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <div class="input-box region-box">
-          <span class="icon">📍</span>
-          <input type="text" placeholder="Mkoa">
-        </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <button class="order-btn" onclick="sendToGoogleForm()">
-AGIZA SASA 
-</button>
-      </td>
-    </tr>
-
-  </table>
-</div>
-  <div class="extra-image-card">
-
-  <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
-  <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg">
-  <img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg">
-</div>
-</div>  
-</div>  
-</div>  
-</div>  
 <footer class="site-footer">
   <div class="footer-nav">
     <div class="footer-box brand-box">
