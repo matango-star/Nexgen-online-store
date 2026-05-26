@@ -362,6 +362,7 @@ body{
 .offer-box.active{
   border:3px solid #d61f3d;
   background:#ffe7ec;
+  
 }
 
 .offer-left{
@@ -1146,6 +1147,47 @@ function sendToGoogleForm(){
   window.open(url,"_blank");
 
 }
+    let selectedOffer = null;
+
+const offerBoxes = document.querySelectorAll(".offer-box");
+
+offerBoxes.forEach((box, index) => {
+
+  box.addEventListener("click", () => {
+
+    // remove active from all
+    offerBoxes.forEach(b => b.classList.remove("active"));
+
+    // add active to clicked
+    box.classList.add("active");
+
+    // store selected offer
+    const title = box.querySelector(".offer-title").innerText;
+    const price = box.querySelector(".offer-price strong").innerText;
+    const oldPriceEl = box.querySelector(".offer-price del");
+
+    const oldPrice = oldPriceEl ? oldPriceEl.innerText : "";
+
+    selectedOffer = {
+      title,
+      price,
+      oldPrice
+    };
+
+  });
+
+});
+    if(!selectedOffer){
+  alert("Chagua offer kwanza (Nunua 1, 2, 3...)");
+  return;
+}
+    const url =
+  formBase +
+  "?entry.111111=" + encodeURIComponent(name) +
+  "&entry.222222=" + encodeURIComponent(phone) +
+  "&entry.333333=" + encodeURIComponent(region) +
+  "&entry.444444=" + encodeURIComponent(selectedOffer.title + " - " + selectedOffer.price) +
+  "&entry.555555=" + encodeURIComponent(product.name);
 
 </script>
 </body>
