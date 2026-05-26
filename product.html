@@ -986,12 +986,33 @@ const products = {
       "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg"
     ],
 
-    offers: [
-      {title:"Nunua 1", price:"20,000 TZS"},
-      {title:"Nunua 2", price:"35,000 TZS"},
-      {title:"Nunua 3", price:"50,000 TZS"},
-      {title:"Nunua 4", price:"65,000 TZS"}
-    ]
+offers: [
+
+  {
+    title:"Nunua 1",
+    oldPrice:"",
+    newPrice:"20,000 TZS"
+  },
+
+  {
+    title:"Nunua 2",
+    oldPrice:"40,000 TZS",
+    newPrice:"35,000 TZS"
+  },
+
+  {
+    title:"Nunua 3",
+    oldPrice:"60,000 TZS",
+    newPrice:"50,000 TZS"
+  },
+
+  {
+    title:"Nunua 4",
+    oldPrice:"80,000 TZS",
+    newPrice:"65,000 TZS"
+  }
+
+]
 
   }
 
@@ -1040,9 +1061,13 @@ if(product){
       box.querySelector(".offer-price strong").innerText =
       product.offers[index].newPrice;
 
-     box.querySelector(".offer-price del").innerText =
-     product.offers[index].oldPrice;
-    }
+   const delElement =
+box.querySelector(".offer-price del");
+
+if(delElement){
+  delElement.innerText =
+  product.offers[index].oldPrice || "";
+}
 
   });
 
