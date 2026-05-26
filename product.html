@@ -860,49 +860,8 @@ AGIZA SASA
   </div>
 </footer>
   <script>
-const offerBoxes = document.querySelectorAll(".offer-box");
-
-offerBoxes.forEach(box => {
-  box.addEventListener("click", () => {
-    
-    // remove active from all
-    offerBoxes.forEach(b => b.classList.remove("active"));
-
-    // add active to clicked
-    box.classList.add("active");
-  });
-});
-    let selectedPackage = "Nunua 2"; // default
-
-offerBoxes.forEach(box => {
-  box.addEventListener("click", () => {
-    selectedPackage = box.querySelector(".offer-title").innerText;
-  });
-});
-function sendToGoogleForm() {
-
-  const name = document.querySelector(".name-box input").value;
-  const phone = document.querySelector(".phone-box input").value;
-  const region = document.querySelector(".region-box input").value;
-
-  // CHANGE THIS to your Google Form link
-  const formBase = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform";
-
-  // Google Form prefill format (example)
-  const url = formBase +
-    "?entry.111111=" + encodeURIComponent(name) +
-    "&entry.222222=" + encodeURIComponent(phone) +
-    "&entry.333333=" + encodeURIComponent(region) +
-    "&entry.444444=" + encodeURIComponent(selectedPackage);
-
-  window.open(url, "_blank");
-}
-  <script>
-  <script>
-
 /* GET PRODUCT ID */
 const params = new URLSearchParams(window.location.search);
-
 const productId = params.get("id");
 
 /* PRODUCT DATABASE */
@@ -911,33 +870,21 @@ const products = {
   1: {
 
     name: "Liver Detox Tea",
-
     newPrice: "69,000 TZS",
-
     oldPrice: "99,000 TZS",
 
     images: [
-
       "pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg",
-
       "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
-
       "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
-
       "pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg"
-
     ],
 
     offers: [
-
       {title:"Nunua 1", price:"69,000 TZS"},
-
       {title:"Nunua 2", price:"99,000 TZS"},
-
       {title:"Nunua 3", price:"139,000 TZS"},
-
       {title:"Nunua 4", price:"169,000 TZS"}
-
     ]
 
   },
@@ -945,33 +892,21 @@ const products = {
   2: {
 
     name: "Immune Booster Capsules",
-
     newPrice: "30,000 TZS",
-
     oldPrice: "45,000 TZS",
 
     images: [
-
       "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
-
       "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
-
       "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg",
-
       "pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg"
-
     ],
 
     offers: [
-
       {title:"Nunua 1", price:"30,000 TZS"},
-
       {title:"Nunua 2", price:"50,000 TZS"},
-
       {title:"Nunua 3", price:"70,000 TZS"},
-
       {title:"Nunua 4", price:"90,000 TZS"}
-
     ]
 
   },
@@ -979,33 +914,21 @@ const products = {
   3: {
 
     name: "Herbal Pain Relief Oil",
-
     newPrice: "20,000 TZS",
-
     oldPrice: "35,000 TZS",
 
     images: [
-
       "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
-
       "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
-
       "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg",
-
       "pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg"
-
     ],
 
     offers: [
-
       {title:"Nunua 1", price:"20,000 TZS"},
-
       {title:"Nunua 2", price:"35,000 TZS"},
-
       {title:"Nunua 3", price:"50,000 TZS"},
-
       {title:"Nunua 4", price:"65,000 TZS"}
-
     ]
 
   }
@@ -1013,22 +936,22 @@ const products = {
 };
 
 /* LOAD PRODUCT */
-
 const product = products[productId];
 
 if(product){
 
+  /* PRODUCT NAME */
   document.getElementById("productName").innerText =
   product.name;
 
+  /* PRICES */
   document.getElementById("newPrice").innerText =
   product.newPrice;
 
   document.getElementById("oldPrice").innerText =
   product.oldPrice;
 
-  /* IMAGES */
-
+  /* MAIN IMAGES */
   document.getElementById("mainImage1").src =
   product.images[0];
 
@@ -1041,8 +964,7 @@ if(product){
   document.getElementById("mainImage4").src =
   product.images[3];
 
-  /* OFFERS */
-
+  /* OFFER BOXES */
   const offerBoxes =
   document.querySelectorAll(".offer-box");
 
@@ -1063,7 +985,6 @@ if(product){
 }
 
 /* PACKAGE SELECTION */
-
 const offerBoxes =
 document.querySelectorAll(".offer-box");
 
@@ -1073,12 +994,15 @@ offerBoxes.forEach(box => {
 
   box.addEventListener("click", () => {
 
+    /* REMOVE ACTIVE */
     offerBoxes.forEach(b =>
       b.classList.remove("active")
     );
 
+    /* ADD ACTIVE */
     box.classList.add("active");
 
+    /* SAVE SELECTED PACKAGE */
     selectedPackage =
     box.querySelector(".offer-title").innerText;
 
@@ -1086,8 +1010,7 @@ offerBoxes.forEach(box => {
 
 });
 
-/* SEND TO GOOGLE FORM */
-
+/* GOOGLE FORM */
 function sendToGoogleForm(){
 
   const name =
@@ -1099,6 +1022,7 @@ function sendToGoogleForm(){
   const region =
   document.querySelector(".region-box input").value;
 
+  /* VALIDATION */
   if(name === "" || phone === "" || region === ""){
 
     alert("Jaza taarifa zote kwanza");
@@ -1107,6 +1031,7 @@ function sendToGoogleForm(){
 
   }
 
+  /* GOOGLE FORM LINK */
   const formBase =
   "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse";
 
@@ -1128,10 +1053,11 @@ function sendToGoogleForm(){
 
     "&entry.555555=" +
     encodeURIComponent(product.name);
-
+          
   window.open(url,"_blank");
 
 }
+
 </script>
 </body>
 </html>
