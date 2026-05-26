@@ -903,10 +903,29 @@ const products = {
     ],
 
     offers: [
-      {title:"Nunua 1", price:"30,000 TZS"},
-      {title:"Nunua 2", price:"50,000 TZS"},
-      {title:"Nunua 3", price:"70,000 TZS"},
-      {title:"Nunua 4", price:"90,000 TZS"}
+       {
+    title:"Nunua 1",
+    oldPrice:"99,000 TZS",
+    newPrice:"69,000 TZS"
+  },
+
+  {
+    title:"Nunua 2",
+    oldPrice:"138,000 TZS",
+    newPrice:"99,000 TZS"
+  },
+
+  {
+    title:"Nunua 3",
+    oldPrice:"207,000 TZS",
+    newPrice:"139,000 TZS"
+  },
+
+  {
+    title:"Nunua 4",
+    oldPrice:"276,000 TZS",
+    newPrice:"169,000 TZS"
+  }
     ]
 
   },
@@ -976,8 +995,10 @@ if(product){
       product.offers[index].title;
 
       box.querySelector(".offer-price strong").innerText =
-      product.offers[index].price;
+      product.offers[index].newPrice;
 
+     box.querySelector(".offer-price del").innerText =
+     product.offers[index].oldPrice;
     }
 
   });
