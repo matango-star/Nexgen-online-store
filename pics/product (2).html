@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Product Page</title>
+
+<style>
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f5f5f5;
+}
+
+.wrapper{
+  max-width:1300px;
+  margin:auto;
+  padding:30px;
+}
+
+/* PRODUCT LAYOUT */
+
+.product-layout{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+}
+
+/* LEFT SIDE */
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.gallery-grid img{
+  width:100%;
+  border-radius:14px;
+  object-fit:cover;
+  cursor:pointer;
+}
+
+/* ORDER  */
+.order-section{
+  margin-top:20px;
+  text-align:center;
+  font-family:Arial, sans-serif;
+}
+
+.form-title{
+  font-size:22px;
+  margin-bottom:15px;
+}
+
+.order-table{
+  margin:auto;
+  width:100%;
+  max-width:400px;
+}
+
+/* GRAY INPUT BOXES */
+.input-box{
+  display:flex;
+  align-items:center;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:12px;
+  background:#f2f2f2;
+  border:1px solid #ccc;
+}
+
+.input-box .icon{
+  margin-right:10px;
+  font-size:18px;
+  color:#666;
+}
+
+.input-box input{
+  border:none;
+  outline:none;
+  width:100%;
+  font-size:16px;
+  background:transparent;
+}
+
+/* RED BUTTON */
+.order-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:#e60000;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  transition:0.3s;
+  font-weight:bold;
+}
+
+.order-btn:hover{
+  background:#b30000;
+}
+
+  /* RIGHT SIDE */
+.product-info{
+  padding-right:10px;
+}
+.product-layout{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+  align-items:start;
+}
+  html, body{
+  height:auto;
+  overflow-y:auto;
+}
+
+.product-info h1{
+  font-size:38px;
+  margin:0 0 14px;
+  font-weight:600;
+  line-height:1.2;
+}
+
+.price-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:22px;
+  flex-wrap:wrap;
+}
+
+.new-price{
+  color:#c21807;
+  font-size:28px;
+  font-weight:bold;
+}
+
+.old-price{
+  color:#777;
+  text-decoration:line-through;
+  font-size:18px;
+}
+
+.sale-badge{
+  background:#3559e0;
+  color:white;
+  padding:5px 10px;
+  border-radius:5px;
+  font-size:13px;
+}
+
+/* OFFER BOX */
+
+.offer-container{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.offer-box{
+  border:2px solid #ddd;
+  border-radius:10px;
+  padding:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  transition:0.3s;
+  background:white;
+}
+
+.offer-box.active{
+  border:2px solid #d61f3d;
+  background:#ffe7ec;
+}
+
+.offer-left{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.offer-left img{
+  width:48px;
+  height:48px;
+  object-fit:cover;
+  border-radius:6px;
+}
+
+.offer-title{
+  font-size:15px;
+  font-weight:bold;
+}
+
+.save-badge{
+  background:black;
+  color:white;
+  padding:3px 8px;
+  border-radius:5px;
+  font-size:11px;
+  display:inline-block;
+  margin-top:4px;
+}
+
+.offer-price{
+  text-align:right;
+}
+
+.offer-price del{
+  color:#777;
+  font-size:13px;
+}
+
+.offer-price strong{
+  display:block;
+  font-size:17px;
+  margin-top:3px;
+}
+
+/* SHIPPING */
+
+.shipping-box{
+  margin-top:15px;
+  border:2px solid #ddd;
+  border-radius:10px;
+  padding:14px;
+  background:white;
+  display:flex;
+  justify-content:space-between;
+  font-size:16px;
+}
+
+/* BUTTONS */
+
+.button-group{
+  display:flex;
+  gap:12px;
+  margin-top:22px;
+}
+
+.btn{
+  padding:13px 22px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.whatsapp-btn{
+  background:#1e3d59;
+  color:white;
+}
+
+/* ABOUT */
+
+.about-product{
+  margin-top:30px;
+  background:white;
+  padding:22px;
+  border-radius:14px;
+}
+
+.about-product h2{
+  margin-top:0;
+  font-size:24px;
+}
+
+.about-product p{
+  font-size:15px;
+  line-height:1.8;
+  color:#444;
+}
+.product-info h1{
+  font-size:58px;
+  margin:0 0 20px;
+  font-weight:500;
+}
+
+.price-row{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-bottom:30px;
+}
+
+.new-price{
+  color:#c21807;
+  font-size:42px;
+  font-weight:bold;
+}
+
+.old-price{
+  color:#777;
+  text-decoration:line-through;
+  font-size:28px;
+}
+
+.sale-badge{
+  background:#3559e0;
+  color:white;
+  padding:8px 14px;
+  border-radius:5px;
+  font-size:18px;
+}
+
+/* OFFER BOX */
+
+.offer-container{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.offer-box{
+  border:2px solid #ddd;
+  border-radius:10px;
+  padding:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  transition:0.3s;
+  background:white;
+}
+
+.offer-box.active{
+  border:3px solid #d61f3d;
+  background:#ffe7ec;
+}
+
+.offer-left{
+  display:flex;
+  gap:15px;
+  align-items:center;
+}
+
+.offer-left img{
+  width:60px;
+  border-radius:6px;
+}
+
+.offer-title{
+  font-size:18px;
+  font-weight:bold;
+}
+
+.save-badge{
+  background:black;
+  color:white;
+  padding:4px 10px;
+  border-radius:5px;
+  font-size:13px;
+  display:inline-block;
+  margin-top:5px;
+}
+
+.offer-price{
+  text-align:right;
+}
+
+.offer-price del{
+  color:#777;
+}
+
+.offer-price strong{
+  display:block;
+  font-size:20px;
+  margin-top:5px;
+}
+
+/* SHIPPING */
+
+.shipping-box{
+  margin-top:18px;
+  border:2px solid #ddd;
+  border-radius:10px;
+  padding:18px;
+  background:white;
+  display:flex;
+  justify-content:space-between;
+  font-size:22px;
+}
+
+/* BUTTONS */
+
+.button-group{
+  display:flex;
+  gap:15px;
+  margin-top:30px;
+}
+
+.btn{
+  padding:16px 28px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:17px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+  /* HEADER */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#ffffff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* LOGO */
+.logo{
+  font-size:20px;
+  font-weight:bold;
+  color:#e60000;
+}
+
+/* NAV LINKS */
+.nav-links{
+  display:flex;
+  gap:20px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
+  font-size:15px;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:#e60000;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+  .site-header{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }
+
+  .nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
+}
+
+/* ABOUT */
+
+.about-product{
+  margin-top:40px;
+  background:white;
+  padding:25px;
+  border-radius:14px;
+}
+
+.about-product h2{
+  margin-top:0;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .product-layout{
+    grid-template-columns:1fr;
+  }
+
+  .product-info h1{
+    font-size:38px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+  <header class="site-header">
+
+  <div class="logo">
+Nexgen Online Shop
+  </div>
+
+  <nav class="nav-links">
+    <a href="#">Home</a>
+    <a href="#offers">Offers</a>
+    <a href="#order">Order</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+</header>
+
+<div class="wrapper">
+
+<div class="product-layout">
+
+<!-- LEFT -->
+
+<div class="gallery-grid">
+
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (1).jpeg">
+
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15 (2).jpeg">
+
+<img src="pics/WhatsApp Image 2026-05-22 at 18.37.34 (2).jpeg">
+
+</div>
+  <div class="about-product">
+
+<h2>About This Product</h2>
+
+<p>
+
+Liver Detox Tea is a natural herbal medicine designed to support liver cleansing,
+improve digestion, and help the body remove toxins naturally.
+This product contains carefully selected herbal ingredients trusted for everyday wellness.
+
+</p>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="product-info">
+
+<h1>Liver Detox Tea</h1>
+
+<div class="price-row">
+
+<div class="new-price">
+69,000 TZS
+</div>
+
+<div class="old-price">
+99,000 TZS
+</div>
+
+<div class="sale-badge">
+Sale
+</div>
+
+</div>
+
+<!-- OFFERS -->
+
+<div class="offer-container">
+
+<div class="offer-box">
+
+<div class="offer-left">
+
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+
+<div>
+
+<div class="offer-title">
+Nunua 1
+</div>
+
+<div class="save-badge">
+Save 0%
+</div>
+
+</div>
+
+</div>
+
+<div class="offer-price">
+
+<strong>69,000 TZS</strong>
+
+</div>
+
+</div>
+
+<div class="offer-box active">
+
+<div class="offer-left">
+
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+
+<div>
+
+<div class="offer-title">
+Nunua 2
+</div>
+
+<div class="save-badge">
+Save 20%
+</div>
+
+</div>
+
+</div>
+
+<div class="offer-price">
+
+<del>138,000 TZS</del>
+
+<strong>99,000 TZS</strong>
+
+</div>
+
+</div>
+
+<div class="offer-box">
+
+<div class="offer-left">
+
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+
+<div>
+
+<div class="offer-title">
+Nunua 3
+</div>
+
+<div class="save-badge">
+Save 30%
+</div>
+
+</div>
+
+</div>
+
+<div class="offer-price">
+
+<del>207,000 TZS</del>
+
+<strong>139,000 TZS</strong>
+
+</div>
+
+</div>
+
+<div class="offer-box">
+
+<div class="offer-left">
+
+<img src="pics/WhatsApp Image 2026-05-21 at 21.22.15.jpeg">
+
+<div>
+
+<div class="offer-title">
+Nunua 4
+</div>
+
+<div class="save-badge">
+Save 40%
+</div>
+
+</div>
+
+</div>
+
+<div class="offer-price">
+
+<del>276,000 TZS</del>
+
+<strong>169,000 TZS</strong>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SHIPPING -->
+
+<div class="shipping-box">
+
+<div>
+🚚 Free Shipping
+</div>
+
+<strong>
+Free
+</strong>
+
+</div>
+
+  <!-- ORDER FORM SECTION -->
+<div class="order-section">
+
+  <h2 class="form-title">Jaza fomu hii kuagiza 🛒👇</h2>
+
+  <table class="order-table">
+
+    <tr>
+      <td>
+        <div class="input-box name-box">
+          <span class="icon">👤</span>
+          <input type="text" placeholder="Jina Kamili">
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="input-box phone-box">
+          <span class="icon">📞</span>
+          <input type="tel" placeholder="Namba ya simu">
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="input-box region-box">
+          <span class="icon">📍</span>
+          <input type="text" placeholder="Mkoa">
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <button class="order-btn">AGIZA SASA 🚀</button>
+      </td>
+    </tr>
+
+  </table>
+</div>
+<!-- BUTTONS -->
+
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ABOUT -->
+
+
+
+</div>
+
+</body>
+</html>
