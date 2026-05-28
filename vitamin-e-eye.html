@@ -981,23 +981,25 @@ AGIZA SASA
   <script>
 const offerBoxes = document.querySelectorAll(".offer-box");
 
+let selectedPackage = "Nunua 2"; // default
+let selectedPrice = "99,000 TZS";
+let productName = "Vitamin E Eye Cream";
+
 offerBoxes.forEach(box => {
   box.addEventListener("click", () => {
-    
     // remove active from all
     offerBoxes.forEach(b => b.classList.remove("active"));
 
     // add active to clicked
     box.classList.add("active");
-  });
-});
-    let selectedPackage = "Nunua 2"; // default
-
-offerBoxes.forEach(box => {
-  box.addEventListener("click", () => {
+    
+    // Update selected package and price
     selectedPackage = box.querySelector(".offer-title").innerText;
+    const priceElement = box.querySelector(".offer-price strong");
+    selectedPrice = priceElement ? priceElement.innerText : "N/A";
+    
     // Update the display
-    document.getElementById("selectedPackageDisplay").innerText = selectedPackage;
+    document.getElementById("selectedPackageDisplay").innerText = selectedPackage + " - " + selectedPrice;
   });
 });
 /* SEND TO GOOGLE FORM */
