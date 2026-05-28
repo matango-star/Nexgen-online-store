@@ -841,9 +841,15 @@ Free
 </div>
 
   <!-- ORDER FORM SECTION -->
+   
 <div class="order-section">
 
   <h2 class="form-title">Jaza fomu hii kuagiza 🛒👇</h2>
+
+  <!-- SELECTED PACKAGE DISPLAY -->
+  <div style="background:#f0f0f0; padding:15px; border-radius:10px; margin-bottom:20px; font-size:16px; font-weight:bold; color:#333;">
+    📦 Chaguo Lako: <span id="selectedPackageDisplay" style="color:#d61f3d;">Nunua 2</span>
+  </div>
 
   <table class="order-table">
 
@@ -851,7 +857,7 @@ Free
       <td>
         <div class="input-box name-box">
           <span class="icon">👤</span>
-          <input type="text" placeholder="Jina Kamili">
+          <input type="text" placeholder="Jina Kamili" required>
         </div>
       </td>
     </tr>
@@ -860,7 +866,7 @@ Free
       <td>
         <div class="input-box phone-box">
           <span class="icon">📞</span>
-          <input type="tel" placeholder="Namba ya simu">
+          <input type="tel" placeholder="Namba ya simu" required>
         </div>
       </td>
     </tr>
@@ -869,14 +875,24 @@ Free
       <td>
         <div class="input-box region-box">
           <span class="icon">📍</span>
-          <input type="text" placeholder="Mkoa">
+          <input type="text" placeholder="Mkoa" required>
         </div>
       </td>
     </tr>
+<tr>
+  <td>
+    <div class="input-box note-box">
+      <span class="icon">📝</span>
 
+      <input
+        type="text"
+        placeholder="Ujumbe wa ziada (si lazima)">
+    </div>
+  </td>
+</tr>
     <tr>
       <td>
-        <button class="order-btn" onclick="sendToGoogleForm()">
+        <button class="order-btn" id="orderBtn" onclick="sendToGoogleForm()">
 AGIZA SASA 
 </button>
       </td>
@@ -980,25 +996,138 @@ offerBoxes.forEach(box => {
 offerBoxes.forEach(box => {
   box.addEventListener("click", () => {
     selectedPackage = box.querySelector(".offer-title").innerText;
+    // Update the display
+    document.getElementById("selectedPackageDisplay").innerText = selectedPackage;
   });
 });
-function sendToGoogleForm() {
+/* SEND TO GOOGLE FORM */
 
-  const name = document.querySelector(".name-box input").value;
-  const phone = document.querySelector(".phone-box input").value;
-  const region = document.querySelector(".region-box input").value;
+function sendToGoogleForm(){
 
-  // CHANGE THIS to your Google Form link
-  const formBase = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform";
+  const name =
+    document.querySelector(".name-box input").value;
 
-  // Google Form prefill format (example)
-  const url = formBase +
-    "?entry.111111=" + encodeURIComponent(name) +
-    "&entry.222222=" + encodeURIComponent(phone) +
-    "&entry.333333=" + encodeURIComponent(region) +
-    "&entry.444444=" + encodeURIComponent(selectedPackage);
+  const phone =
+    document.querySelector(".phone-box input").value;
 
-  window.open(url, "_blank");
+  const address =
+    document.querySelector(".region-box input").value;
+
+  const note =
+    document.querySelector(".note-box input").value;
+
+  if(name === "" || phone === "" || address === ""){
+
+    alert("Tafadhali jaza matukio yote (Jina, Simu, Mkoa)");
+
+    return;
+
+  }
+
+  // Validate phone number length
+  if(phone.length < 9){
+    alert("Namba ya simu ni fupi sana");
+    return;
+  }
+
+  // Show loading state
+  const orderBtn = document.getElementById("orderBtn");
+  const originalText = orderBtn.innerText;
+  orderBtn.innerText = "⏳ Inasubmit...";
+  orderBtn.disabled = true;
+
+  const formURL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSdm8o7qYKbJH2_BzHcAlzW3z8_7v4o1LXLnQMFLjbx3qSXnIg/formResponse";
+
+  const form =
+    document.createElement("form");
+
+  form.method = "POST";
+
+  form.action = formURL;
+
+  form.target = "hidden_iframe";
+
+  /* NAME */
+  const input1 =
+    document.createElement("input");
+
+  input1.type = "hidden";
+
+  input1.name = "entry.131035801";
+
+  input1.value = name;
+
+  form.appendChild(input1);
+
+  /* PHONE */
+  const input2 =
+    document.createElement("input");
+
+  input2.type = "hidden";
+
+  input2.name = "entry.582084033";
+
+  input2.value = phone;
+
+  form.appendChild(input2);
+
+  /* ADDRESS */
+  const input3 =
+    document.createElement("input");
+
+  input3.type = "hidden";
+
+  input3.name = "entry.598564870";
+
+  input3.value = address;
+
+  form.appendChild(input3);
+
+  /* NOTE */
+  const input4 =
+    document.createElement("input");
+
+  input4.type = "hidden";
+
+  input4.name = "entry.1594282305";
+
+  input4.value = note;
+
+  form.appendChild(input4);
+
+  /* ORDER */
+  const input5 =
+    document.createElement("input");
+
+  input5.type = "hidden";
+
+  input5.name = "entry.2070613321";
+
+  // Send: Product Name - Nunua X - Price
+  input5.value = productName + " - " + selectedPackage + " - " + selectedPrice;
+
+  form.appendChild(input5);
+
+  document.body.appendChild(form);
+
+  form.submit();
+
+  // Show success message
+  setTimeout(() => {
+    alert("Agizo limepokelewa kwa mafanikio ✅\n\nUtapokea ujumbe sambamba.");
+    
+    // CLEAR INPUTS
+    document.querySelector(".name-box input").value = "";
+    document.querySelector(".phone-box input").value = "";
+    document.querySelector(".region-box input").value = "";
+    document.querySelector(".note-box input").value = "";
+
+    // Reset button
+    orderBtn.innerText = originalText;
+    orderBtn.disabled = false;
+  }, 1000);
+
 }
 function toggleShareMenu(){
 
