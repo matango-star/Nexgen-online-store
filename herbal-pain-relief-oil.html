@@ -991,13 +991,21 @@ offerBoxes.forEach(box => {
     box.classList.add("active");
   });
 });
-    let selectedPackage = "Nunua 2"; // default
+
+let selectedPackage = "Nunua 2"; // default
+let selectedPrice = "99,000 TZS";
+let productName = "Back corrector control body control";
 
 offerBoxes.forEach(box => {
   box.addEventListener("click", () => {
     selectedPackage = box.querySelector(".offer-title").innerText;
+    
+    // Get the price
+    const priceElement = box.querySelector(".offer-price strong");
+    selectedPrice = priceElement ? priceElement.innerText : "N/A";
+    
     // Update the display
-    document.getElementById("selectedPackageDisplay").innerText = selectedPackage;
+    document.getElementById("selectedPackageDisplay").innerText = selectedPackage + " - " + selectedPrice;
   });
 });
 /* SEND TO GOOGLE FORM */
