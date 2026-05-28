@@ -847,13 +847,18 @@ Free
 
   <h2 class="form-title">Jaza fomu hii kuagiza 🛒👇</h2>
 
+  <!-- SELECTED PACKAGE DISPLAY -->
+  <div style="background:#f0f0f0; padding:15px; border-radius:10px; margin-bottom:20px; font-size:16px; font-weight:bold; color:#333;">
+    📦 Chaguo Lako: <span id="selectedPackageDisplay" style="color:#d61f3d;">Nunua 2</span>
+  </div>
+
   <table class="order-table">
 
     <tr>
       <td>
         <div class="input-box name-box">
           <span class="icon">👤</span>
-          <input type="text" placeholder="Jina Kamili">
+          <input type="text" placeholder="Jina Kamili" required>
         </div>
       </td>
     </tr>
@@ -862,7 +867,7 @@ Free
       <td>
         <div class="input-box phone-box">
           <span class="icon">📞</span>
-          <input type="tel" placeholder="Namba ya simu">
+          <input type="tel" placeholder="Namba ya simu" required>
         </div>
       </td>
     </tr>
@@ -871,7 +876,7 @@ Free
       <td>
         <div class="input-box region-box">
           <span class="icon">📍</span>
-          <input type="text" placeholder="Mkoa">
+          <input type="text" placeholder="Mkoa" required>
         </div>
       </td>
     </tr>
@@ -882,13 +887,13 @@ Free
 
       <input
         type="text"
-        placeholder="Additional Note">
+        placeholder="Ujumbe wa ziada (si lazima)">
     </div>
   </td>
 </tr>
     <tr>
       <td>
-        <button class="order-btn" onclick="sendToGoogleForm()">
+        <button class="order-btn" id="orderBtn" onclick="sendToGoogleForm()">
 AGIZA SASA 
 </button>
       </td>
@@ -976,6 +981,8 @@ AGIZA SASA
 const offerBoxes = document.querySelectorAll(".offer-box");
 
 let selectedPackage = "Nunua 2";
+let selectedPrice = "99,000 TZS";
+let productName = "Liver Cleansing Tea";
 
 /* OFFER SELECT */
 offerBoxes.forEach(box => {
@@ -988,6 +995,13 @@ offerBoxes.forEach(box => {
 
     selectedPackage =
       box.querySelector(".offer-title").innerText;
+
+    // Get the price
+    const priceElement = box.querySelector(".offer-price strong");
+    selectedPrice = priceElement ? priceElement.innerText : "N/A";
+
+    // Update the display
+    document.getElementById("selectedPackageDisplay").innerText = selectedPackage + " - " + selectedPrice;
 
   });
 
@@ -1012,14 +1026,26 @@ function sendToGoogleForm(){
 
   if(name === "" || phone === "" || address === ""){
 
-    alert("Please fill all fields");
+    alert("Tafadhali jaza matukio yote (Jina, Simu, Mkoa)");
 
     return;
 
   }
 
+  // Validate phone number length
+  if(phone.length < 9){
+    alert("Namba ya simu ni fupi sana");
+    return;
+  }
+
+  // Show loading state
+  const orderBtn = document.getElementById("orderBtn");
+  const originalText = orderBtn.innerText;
+  orderBtn.innerText = "⏳ Inasubmit...";
+  orderBtn.disabled = true;
+
   const formURL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSeqKWWLUQzH73Jpq7lJFj7UCBYAHSiM62cOcazgFCdRMJK0Kw/formResponse";
+  "https://docs.google.com/forms/d/e/1FAIpQLSdm8o7qYKbJH2_BzHcAlzW3z8_7v4o1LXLnQMFLjbx3qSXnIg/formResponse";
 
   const form =
     document.createElement("form");
@@ -1036,7 +1062,7 @@ function sendToGoogleForm(){
 
   input1.type = "hidden";
 
-  input1.name = "entry.1613526215";
+  input1.name = "entry.131035801";
 
   input1.value = name;
 
@@ -1048,7 +1074,7 @@ function sendToGoogleForm(){
 
   input2.type = "hidden";
 
-  input2.name = "entry.1644409584";
+  input2.name = "entry.582084033";
 
   input2.value = phone;
 
@@ -1060,7 +1086,7 @@ function sendToGoogleForm(){
 
   input3.type = "hidden";
 
-  input3.name = "entry.1119765093";
+  input3.name = "entry.598564870";
 
   input3.value = address;
 
@@ -1072,7 +1098,7 @@ function sendToGoogleForm(){
 
   input4.type = "hidden";
 
-  input4.name = "entry.1157612058";
+  input4.name = "entry.1594282305";
 
   input4.value = note;
 
@@ -1084,9 +1110,10 @@ function sendToGoogleForm(){
 
   input5.type = "hidden";
 
-  input5.name = "entry.373826011";
+  input5.name = "entry.2070613321";
 
-  input5.value = selectedPackage;
+  // Send: Product Name - Nunua X - Price
+  input5.value = productName + " - " + selectedPackage + " - " + selectedPrice;
 
   form.appendChild(input5);
 
@@ -1094,7 +1121,20 @@ function sendToGoogleForm(){
 
   form.submit();
 
-  alert("Order submitted successfully ✅");
+  // Show success message
+  setTimeout(() => {
+    alert("Agizo limepokelewa kwa mafanikio ✅\n\nUtapokea ujumbe sambamba.");
+    
+    // CLEAR INPUTS
+    document.querySelector(".name-box input").value = "";
+    document.querySelector(".phone-box input").value = "";
+    document.querySelector(".region-box input").value = "";
+    document.querySelector(".note-box input").value = "";
+
+    // Reset button
+    orderBtn.innerText = originalText;
+    orderBtn.disabled = false;
+  }, 1000);
 
 }
 
